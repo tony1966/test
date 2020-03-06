@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <a href="#" id="add">新增</a>
+  <a href="#" id="remove">刪除</a><br><br>
+  <div id="acc1" class="easyui-accordion" style="width:300px;">
+    <div title="標題 1" style="padding:10px;">內容 1</div>
+    <div title="標題 2" style="padding:10px;">內容 2</div>
+    <div title="標題 3" style="padding:10px;">內容 3</div>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#add").linkbutton({
+        iconCls:"icon-add"
+        });
+      $("#add").bind("click",function(){
+        $("#acc1").accordion("add", {
+          title:"新選單",
+          content:"Hello World!",
+          });
+        }); 
+      $("#remove").linkbutton({
+        iconCls:"icon-remove"
+        });
+      $("#remove").bind("click",function(){
+        var p=$("#acc1").accordion("getSelected");
+        if (p){
+          var id=$("#acc1").accordion("getPanelIndex",p);
+          $("#acc1").accordion("remove",id)
+          }         
+        });           
+      });
+  </script>
+</body>
+</html>

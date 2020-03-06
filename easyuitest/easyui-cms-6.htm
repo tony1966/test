@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    * {font-size:14px;}
+    a {
+      text-decoration:none;
+      }
+    .navbar {
+      width:180px;
+      }
+    .nav {
+      border:0px;
+      padding:5px;
+      }
+    .content {
+      }
+    .tab {
+      padding:10px;
+      }
+    #header {
+      }
+  </style>
+</head>
+<body class="easyui-layout">
+  <div id="header" title="MyIT" data-options="region:'north',border:false,collapsible:true,tools:'#tools'" style="height:55px;padding:5px;overflow:hidden;">
+    <table style="width:100%;border-spacing:0px">
+      <tr>
+        <td style="text-align:left;">歡迎光臨! 今天是 2014 年 12 月 15 日 (星期一)</td>
+        <td style="text-align:right">
+          <a href="#">工作日誌</a>．
+          <a href="#">台股</a>．
+          <a href="#">管理</a>．
+          <a href="#">登出</a>．
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div id="tools">
+   <a href="#" id="logout" class="icon-remove"></a>
+  </div>
+  <div class="navbar" title="導覽" data-options="region:'west',border:true">
+    <div class="easyui-accordion" style="border-top:0px;border-right:0px;border-bottom:0px;">
+      <div title="Main" style="padding:5px;">
+        ．工作日誌<br>
+        ．管理<br>
+        ．登出<br>
+      </div>
+      <div title="標題 2" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 3" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 4" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 5" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 6" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 7" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 8" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 9" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 10" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 11" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 12" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+      <div title="標題 13" style="padding:5px;">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>      
+      </div>
+    </div>
+  </div>
+  <div class="content" data-options="region:'center',border:false">
+    <div class="easyui-tabs" data-options="fit:'true'">
+      <div title="績優股" class="tab">
+        <table id="grid1" title="台股"></table>
+      </div>
+      <div title="台股總表" class="tab">
+        <table id="grid2" title="台股"></table>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('#grid1').datagrid({
+        url:'get_stocks_search.php',
+        columns:[[
+          {field:'name',title:'股票名稱',width:80,sortable:true},
+          {field:'id',title:'股票代號',width:80,sortable:true},
+          {field:'close',title:'收盤價 (元)',width:100,align:'right',sortable:true},
+          {field:'volumn',title:'成交量 (張)',width:100,align:'right',sortable:true},
+          {field:'meeting',title:'股東會日期',align:'left',sortable:true},
+          {field:'election',title:'董監改選',width:80,align:'center',sortable:true},
+          {field:'category',title:'類股',width:60,align:'center',sortable:true}
+          ]],
+        singleSelect:true,
+        collapsible:true,
+        fitColumns:true
+        });
+      $('#grid2').datagrid({
+        url:'get_stocks_list_search.php',
+        columns:[[
+          {field:'stock_name',title:'股票名稱',width:100,sortable:true},
+          {field:'stock_id',title:'股票代號',width:100,sortable:true}
+          ]],
+        singleSelect:true,
+        collapsible:true,
+        pagination:true,
+        pageSize:10,
+        rownumbers:true,
+        fitColumns:true
+        });
+      });
+  </script>
+</body>
+</html>

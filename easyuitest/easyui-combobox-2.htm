@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <select id="category" class="easyui-combobox" name="category">
+      <option value="水泥">水泥</option>
+      <option value="食品">食品</option>
+      <option value="塑膠">塑膠</option>
+      <option value="鋼鐵">鋼鐵</option>
+      <option value="電子" selected>電子</option>
+      <option value="金融">金融</option>
+  </select>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#category").combobox({
+        panelHeight:'80px',
+        panelWidth:150
+        });
+      });
+  </script>
+</body>
+</html>

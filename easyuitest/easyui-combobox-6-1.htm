@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/themes/icon.css">
+  <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="http://www.jeasyui.com/easyui/locale/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <input id="stock" name="stock">
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#stock").combobox({
+        panelHeight:150,
+        valueField:'value',
+        textField:'text',
+        url:'get_combobox_stocks_list.php',
+        mode:'remote'
+        });
+      });
+  </script>
+</body>

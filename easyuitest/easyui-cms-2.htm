@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    .navbar {
+      width:180px;
+      padding-left:5px;
+      padding-right:5px;
+      padding-bottom:5px;
+      }
+    .nav {
+      margin-bottom:5px;
+      }
+    .content {
+      overflow:auto;
+      padding-bottom:5px;
+      }
+    .tab {
+      padding:10px;
+      overflow:auto;
+      position:relative;
+      }
+    #header {
+      padding-left:5px;
+      padding-right:5px;
+      padding-top:5px;
+      }
+  </style>
+</head>
+<body>
+  <div id="layout-1" class="easyui-layout" data-options="fit:true" style="">
+    <div id="header" data-options="region:'north',border:false">
+      <div class="easyui-panel" title="MySystem" data-options="tools:'#tools'"  style="height:60px;padding-top:5px;padding-left:5px;padding-right:5px;">
+      歡迎光臨! 今天是 2014 年 12 月 12 日
+      </div>
+    </div>
+    <div id="tools">
+     <a href="#" id="nav-west" class="icon-remove"></a>
+     <a href="#" id="nav-east" class="icon-remove"></a>
+    </div>
+    <div class="navbar" data-options="region:'east',border:false">
+      <div class="easyui-panel nav" title="GridPanel 範例">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>
+      </div>
+      <div class="easyui-panel nav" title="MyPanel">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="navbar" data-options="region:'west',border:false">
+      <div class="easyui-panel nav" title="MyPanel-1">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>
+      </div>
+      <div class="easyui-panel nav" title="MyPanel-2">
+        <ul>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+          <li>Hello World!</li>
+        </ul>
+      </div>
+    </div>
+    <div class="content" data-options="region:'center',border:false">
+      <div class="easyui-tabs">
+        <div title="績優股" class="tab">
+          <table id="grid1" title="台股"></table>
+        </div>
+        <div title="台股總表" class="tab">
+          <table id="grid2" title="台股"></table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#nav-west").bind("click",function(){
+        if (this.className.indexOf("icon-remove") != -1){
+          $("#layout-1").layout("collapse","west");
+          this.className="icon-add";
+          }
+        else{
+          $("#layout-1").layout("expand","west");
+          this.className="icon-remove";
+          }
+        });
+      $("#nav-east").bind("click",function(){
+        if (this.className.indexOf("icon-remove") != -1){
+          $("#layout-1").layout("collapse","east");
+          this.className="icon-add";
+          }
+        else{
+          $("#layout-1").layout("expand","east");
+          this.className="icon-remove";
+          }
+        });
+      $('#grid1').datagrid({
+        url:'get_stocks_search.php',
+        columns:[[
+          {field:'name',title:'股票名稱',width:80,sortable:true},
+          {field:'id',title:'股票代號',width:80,sortable:true},
+          {field:'close',title:'收盤價 (元)',width:100,align:'right',sortable:true},
+          {field:'volumn',title:'成交量 (張)',width:100,align:'right',sortable:true},
+          {field:'meeting',title:'股東會日期',align:'left',sortable:true},
+          {field:'election',title:'董監改選',width:80,align:'center',sortable:true},
+          {field:'category',title:'類股',width:60,align:'center',sortable:true}
+          ]],
+        singleSelect:true,
+        collapsible:true,
+        fitColumns:true
+        });
+      $('#grid2').datagrid({
+        url:'get_stocks_list_search.php',
+        columns:[[
+          {field:'stock_name',title:'股票名稱',width:100,sortable:true},
+          {field:'stock_id',title:'股票代號',width:100,sortable:true}
+          ]],
+        singleSelect:true,
+        collapsible:true,
+        pagination:true,
+        pageSize:60,
+        rownumbers:true,
+        fitColumns:true
+        });
+      });
+  </script>
+</body>
+</html>

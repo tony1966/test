@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand">
+            <img src="F.jpg">
+          </a>
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-menu">
+            <span class="sr-only">導覽按鈕</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div id="navbar-menu" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="#home" data-toggle="tab">首頁</a></li>
+            <li><a href="#board" data-toggle="tab">留言板</a></li>
+            <li><a href="#download" data-toggle="tab">下載區</a></li>
+            <li><a href="#config" data-toggle="tab">設定</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <label>網路書店</label>
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-header">國外</li>
+                <li><a href="https://www.amazon.com/" target="_blank">亞馬遜書店</a></li>
+                <li><a href="https://www.barnesandnoble.com/" target="_blank">Barnes & Noble</a></li>
+                <li class="divider"></li>
+                <li class="dropdown-header">國內</li>
+                <li><a href="http://www.book.com.tw/" target="_blank">博客來書店</a></li>
+                <li><a href="http://www.eslite.com/" target="_blank">誠品書店</a></li>
+                <li><a href="http://www.kingstone.com.tw/" target="_blank">金石堂書店</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="navbar-text">歡迎來到小狐狸事務所!</p>
+        </div>
+      </div>
+    </nav>
+    <article>
+      <div class="container">
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">
+            <p>這是首頁</p>
+          </div>
+          <div class="tab-pane" id="board">
+            <p>這是留言板</p>
+          </div>
+          <div class="tab-pane" id="download">
+            <p>這是下載區</p>
+          </div>
+          <div class="tab-pane" id="config">
+            <p>這是設定</p>
+          </div>
+        </div>
+      </div>
+    </article>
+    <footer></footer>
+    <script>
+      $(document).ready(function(){
+        });
+    </script>
+  </body>
+</html>

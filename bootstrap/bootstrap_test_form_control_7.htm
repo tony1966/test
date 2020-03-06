@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="language">常用程式語言</label>
+          <select id="language" name="language" class="form-control" multiple>
+            <option value="Python">Python
+            <option value="Javascript">Javascript
+            <option value="PHP">PHP
+            <option value="VBA">VBA
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="hobby">興趣</label>
+          <select id="hobby" name="hobby" class="form-control" multiple>
+            <option value="看電影">看電影
+            <option value="運動">運動
+            <option value="旅遊">旅遊
+            <option value="音樂">音樂
+          </select>
+        </div>
+        <button id="ok" type="submit" class="btn btn-default">確定</button>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function(){
+          $("#ok").on("click", function(){
+            var language=new Array();
+            var hobby=new Array();
+            $("#language").find(":selected").each(function(){
+              language.push(this.value);
+              });
+            $("#hobby").find(":selected").each(function(){
+              hobby.push(this.value);
+              });
+            alert("程式語言:" + language.join() + "\n興趣:" + hobby.join());
+            });
+          });
+    </script>
+  </body>
+</html>

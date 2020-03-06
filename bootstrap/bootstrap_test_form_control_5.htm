@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="language">常用程式語言</label>
+          <div id="language" class="checkbox">
+            <label>
+              <input type="checkbox" name="language" value="Python">Python
+            </label>
+            <label>
+              <input type="checkbox" name="language" value="Javascript">Javascript
+            </label>
+            <label>
+              <input type="checkbox" name="language" value="PHP">PHP
+            </label>
+            <label>
+              <input type="checkbox" name="language" value="VBA">VBA
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hobby">興趣</label>
+          <div id="hobby">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="hobby" value="看電影">看電影
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="hobby" value="運動">運動
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="hobby" value="旅遊">旅遊
+              </label>
+            </div>
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" name="hobby" value="音樂">音樂
+              </label>
+            </div>
+          </div>
+        </div>
+        <button id="ok" type="submit" class="btn btn-default">確定</button>
+      </form>
+    </div>
+    <script>
+      $(document).ready(function(){
+          $("#ok").on("click", function(){
+            var language=new Array();
+            var hobby=new Array();
+            $("[name=language]:checked").each(function(){
+              if (this.checked){language.push(this.value);}
+              });
+            $("[name=hobby]:checked").each(function(){
+              if (this.checked){hobby.push(this.value);}
+              });
+            alert("程式語言:" + language.join() + "\n興趣:" + hobby.join());
+            });
+          });
+    </script>
+  </body>
+</html>

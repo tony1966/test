@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="nav nav-tabs" id="tabs">
+        <li class="active"><a href="#home" data-url="home.htm">首頁</a></li>
+        <li><a href="#board" data-url="board.php">留言板</a></li>
+        <li><a href="#download" data-url="download.php">下載區</a></li>
+        <li><a href="#config" data-url="config.php">設定</a></li>
+      </ul>
+      <div class="tab-content" style="padding:10px;">
+        <div class="tab-pane active" id="home"></div>
+        <div class="tab-pane" id="board"></div>
+        <div class="tab-pane" id="download"></div>
+        <div class="tab-pane" id="config"></div>
+      </div>
+    </div>
+    <script>
+      $(document).ready(function(){
+        $('#tabs a').click(function (e) {
+          e.preventDefault();          
+          var url=$(this).attr("data-url");
+          var href=this.hash;
+          var pane=$(this);
+          $(href).load(url,function(result){
+            pane.tab('show');
+            });
+          });
+        $('#home').load($('.active a').attr("data-url"), function(result){
+          $('.active a').tab('show');
+          });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css">
+    <script src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <form>
+        <div class="form-group">
+          <label for="telephone">time</label>
+          <input type="time" id="time" class="form-control" onchange="show_value(this)">
+        </div>
+        <div class="form-group">
+          <label for="date">date</label>
+          <input type="date" id="date" class="form-control" onchange="show_value(this)">
+        </div>
+        <div class="form-group">
+          <label for="week">week</label>
+          <input type="week" id="week" class="form-control" onchange="show_value(this)">
+        </div>
+        <div class="form-group">
+          <label for="month">month</label>
+          <input type="month" id="month" class="form-control" onchange="show_value(this)">
+        </div>
+        <div class="form-group">
+          <label for="datetime-local">datetime-local</label>
+          <input type="datetime-local" id="datetime-local" class="form-control" onchange="show_value(this)">
+        </div>
+      </form>
+    </div>
+    <script>
+      function show_value(obj) {
+        var span=document.getElementById("display");
+        span.innerHTML=obj.value;
+        }
+    </script>
+  </body>
+</html>

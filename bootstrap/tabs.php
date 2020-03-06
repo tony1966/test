@@ -1,0 +1,1 @@
+<p><?php echo $_GET['text'], " (Ajax)" ?></p>

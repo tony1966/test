@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 測試</title>
+  <style>
+  .triangle-border {
+    position:relative;
+    padding:15px;
+    margin:1em 0 3em;
+    border:1px solid #95B8E7;
+    color:#333;
+    background:#fff;
+    /* css3 */
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+    }
+  .triangle-border:before {
+    content:'';
+    position:absolute;
+    bottom:-20px; 
+    left:40px; 
+    border-width:20px 20px 0;
+    border-style:solid;
+    border-color:#5a8f00 transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+    }
+  .triangle-border:after {
+    content:"";
+    position:absolute;
+    bottom:-13px; 
+    left:47px; 
+    border-width:13px 13px 0;
+    border-style:solid;
+    border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+    }
+  .triangle-border.left {margin-left:30px;}
+  /* creates the larger triangle */
+  .triangle-border.left:before {
+    top:10px; 
+    bottom:auto;
+    left:-20px;
+    border-width:10px 20px 10px 0;
+    border-color:transparent #95B8E7;
+    }
+  /* creates the smaller  triangle */
+  .triangle-border.left:after {
+    top:11px; 
+    bottom:auto;
+    left:-19px;
+    border-width:9px 19px 9px 0;
+    border-color:transparent #fff;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="male.png" style="border-width:0px;">
+    <span class="triangle-border left">
+      Hello Emma!
+      How is everything going?
+    </span>
+  </div>
+  <div>
+    <img src="female.png" style="border-width:0px;">
+    <span class="triangle-border left">
+      Hi, Sam!
+      Ya, just fine. And You?
+    </span>
+  </div>
+</body>
+</html>

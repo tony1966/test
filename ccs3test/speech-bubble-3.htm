@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>CSS3 測試</title>
+  <style>
+    .arrow_box {
+      margin-top:30px;
+      padding: 15px;
+      height: auto; 
+      border-radius: 10px;
+      position: relative;
+      background: #ffffff;
+      border: 1px solid #95B8E7;
+      }
+    .arrow_box:after, .arrow_box:before {
+      bottom: 100%;
+      left: 60px;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+      }
+    .arrow_box:after {
+      border-bottom-color: #ffffff;
+      border-width: 15px;
+      margin-left: -12px;
+      }
+    .arrow_box:before {
+      border-bottom-color: #95B8E7;
+      border-width: 16px;
+      margin-left: -13px;
+      }
+  </style>
+</head>
+<body>
+  <div>
+    <img src="male.png" style="border-width:0px;"> Sam 於 2015-01-13 23:11:06
+    <div class="arrow_box">
+      Hello Emma!
+      How is everything going?
+    </div>
+  </div>
+  <div>
+    <img src="female.png" style="border-width:0px;"> Emma 於 2015-01-13 23:12:50
+    <div class="arrow_box">
+      Hi, Sam!
+      Ya, just fine. And You? 
+    </span>
+  </div>
+</body>
+</html>

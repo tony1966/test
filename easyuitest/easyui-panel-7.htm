@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div class="easyui-panel" title="MyPanel" style="width:300px;height:100px;padding:10px;" data-options="tools:'#tools'">
+    <p>Hello World!</p>
+    <p>Hello World!</p>
+    <p>Hello World! Hello World! Hello World! Hello World! Hello World! </p>
+  </div>
+  <div id="tools">
+	  <a href="#" id="add" class="icon-add"></a>
+	  <a href="#" id="edit" class="icon-edit"></a>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#add").bind("click",function(){
+        $.messager.alert("Info","add");
+        });
+      $("#edit").bind("click",function(){
+        $.messager.alert("Info","edit");
+        });
+      });
+  </script>
+</body>
+</html>

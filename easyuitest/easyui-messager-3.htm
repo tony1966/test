@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <a href="#" class="easyui-linkbutton" onclick="login()">登入</a>
+  <script language="javascript">
+    function login() {
+      $.messager.prompt("登入","請輸入密碼 :",callback);
+      }
+    function callback(val){
+      if (val=="blabla") {$.messager.alert("訊息","您已登入系統.","info");}
+      else {$.messager.alert("訊息","密碼錯誤!","error");}
+      }
+  </script>
+</body>
+</html>

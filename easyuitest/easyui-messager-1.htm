@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <a href="#" class="easyui-linkbutton" onclick="alert1()">alert</a>
+  <a href="#" class="easyui-linkbutton" onclick="alert2()">error</a>
+  <a href="#" class="easyui-linkbutton" onclick="alert3()">info</a>
+  <a href="#" class="easyui-linkbutton" onclick="alert4()">question</a>
+  <a href="#" class="easyui-linkbutton" onclick="alert5()">warning</a>
+  <script language="javascript">
+    function alert1() {
+      $.messager.alert("訊息 (預設)","您好!");
+      }
+    function alert2() {
+      $.messager.alert("訊息 (error)","您好!","error");
+      }
+    function alert3() {
+      $.messager.alert("訊息 (info)","您好!","info");
+      }     
+    function alert4() {
+      $.messager.alert("訊息 (question)","您好!","question");
+      }      
+    function alert5() {
+      $.messager.alert("訊息 (warning)","您好!","warning");
+      }
+  </script>
+</body>
+</html>

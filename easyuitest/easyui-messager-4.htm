@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    #login-form{
+      margin:0;
+      padding:10px 30px;
+		  }
+    .form-title{
+      font-size:14px;
+      font-weight:bold;
+      padding:5px 0;
+      margin-bottom:10px;
+      border-bottom:1px solid #ccc;
+	  	}
+    .form-item{
+      margin-bottom:5px;
+      }
+		.form-item label{
+			display:inline-block;
+			width:80px;
+      }
+    .form-item input{
+      width:160px;
+      }
+  </style>
+</head>
+<body>
+  <div id="login-dialog" class="easyui-dialog" title="登入視窗" style="width:400px;height:220px;padding:10px 20px" buttons="#login-buttons">
+    <div class="form-title">系統登入</div>
+    <form id="login-form" method="post" action="login.php">
+      <div class="form-item">
+        <label>帳號:</label>
+        <input name="account" type="text" class="easyui-textbox" required="true" data-options="iconCls:'icon-man',missingMessage:'此欄位為必填'"  style="width:200px">
+      </div>
+      <div class="form-item">
+        <label>密碼:</label>
+        <input name="password" type="password" class="easyui-textbox" required="true" data-options="iconCls:'icon-lock',missingMessage:'此欄位為必填'" style="width:200px">
+      </div>
+    </form>
+  </div>
+  <div id="login-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="javascript:$('#login-form').submit();" style="width:90px">登入</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#login-dialog').dialog('close')" style="width:90px">取消</a>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#login-form").form({
+        success:function(data){
+          if (data.substr(0,1)=="1") {
+            $("#login-dialog").dialog("close");
+            var msg="登入成功!";
+            }
+          else {var msg="帳號或密碼錯誤!"}
+          $.messager.alert("訊息",msg,"info");
+          }
+        });
+    });
+  </script>
+</body>
+</html>

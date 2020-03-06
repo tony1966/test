@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <a href="#" id="btn-save">變大</a>
+  <script language="javascript">
+    $(document).ready(function(){
+      var count=0;
+      $("#btn-save").linkbutton({iconCls:"icon-save"});
+      $("#btn-save").bind("click",function(){
+        var opt=$("#btn-save").linkbutton("options");
+        if (opt.text=="變大"){
+          $("#btn-save").linkbutton({text:"變小",size:"large"});
+          }
+        else {
+          $("#btn-save").linkbutton({text:"變大",size:"small"});
+          }
+        });
+      });
+  </script>
+</body>
+</html>

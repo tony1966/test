@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <a href="#" id="btn-save">Save</a>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#btn-save").linkbutton({
+        iconCls:"icon-save"
+        });
+      $("#btn-save").bind("click",function(){
+        $("#btn-save").linkbutton("select");
+        });
+      $("#btn-save").bind("dblclick",function(){
+        $("#btn-save").linkbutton("unselect");
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css">
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+  <script type="text/javascript" src="extjs-4.2.1/locale/ext-lang-zh_TW.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      Ext.define("MyApp.Users",{
+        config:{
+          account:"",
+          password:"",
+          email:""
+          },
+        getInfo:function(){
+          return "account=" + this.account + " " +
+                 "password=" + this.password + " " +
+                 "email=" + this.email;
+          },
+        constructor:function(config){
+          Ext.apply(this,config);
+          }
+        });
+      var user1=Ext.create("MyApp.Users",
+                           {account:"Tony",
+                            password:"12345",
+                            email:"tony@abc.com"
+                            }
+                           );
+      Ext.Msg.alert("訊息","Hello! " + user1.account,
+                    function(){
+                      Ext.Msg.alert("訊息",user1.getInfo());
+                      }
+                    );
+      });
+  </script>
+</body>
+</html>

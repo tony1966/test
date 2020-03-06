@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css">
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+  <script type="text/javascript" src="extjs-4.2.1/locale/ext-lang-zh_TW.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      Ext.define("Myapp.Activity1",{
+        move:function(dir){return "Act1: moving " + dir + "..."}
+        });
+      Ext.define("Myapp.Activity2",{
+        stop:function(){return "Act2: stops"}
+        });
+      Ext.define("Myapp.Vehicle",{
+        config:{
+          onwhere:"land",  //land,air,water,space
+          power:"oil"      //oil,electric,hybrid,wind,human,animal
+          },
+        constructor:function(config){
+          this.initConfig(config);
+          }
+        });
+      Ext.define("Myapp.Car",{
+        extend:"Myapp.Vehicle",
+        mixins:{act1:"Myapp.Activity1",act2:"Myapp.Activity2"},
+        config:{
+          src:"Myapp.Car",
+          type:"van", //sports,van,truck
+          wheels:4
+          },
+        constructor:function(config){
+          this.initConfig(config);
+          },
+        move:function(dir){return "Car is moving " + dir + "..."},
+        turn:function(dir){return "Car is turning " + dir + "..."}
+        });
+      var myCar=Ext.create("Myapp.Car",
+                           {type:"sports",
+                            wheel:4,
+                            power:"hybrid"
+                            }
+                           );
+      var info="type=" + myCar.getType() + "<br>" +
+               "wheel=" + myCar.getWheels() + "<br>" +
+               "power=" + myCar.getPower() + "<br>" +
+               myCar.move("forword") + "<br>" +
+               myCar.turn("right") + "<br>" +
+               myCar.stop() + "<br>" +
+               myCar.mixins.act1.move("backward") + "<br>";
+      Ext.Msg.alert("info",info);
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Google Maps 測試</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+</head>
+<body>
+  <div id="canvas" style="width:500px; height:400px"></div>
+  <script>  
+    $(document).ready(function(){
+      var canvas=$("#canvas")[0];
+      var latlng=new google.maps.LatLng(22.66, 120.35);
+      var opt={zoom:14, center:latlng, mapTypeId:"terrain"};
+      var map=new google.maps.Map(canvas, opt);
+      var marker=new google.maps.Marker({position:latlng, map:map});
+      });
+  </script>
+</body>
+</html>

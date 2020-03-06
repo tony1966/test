@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+    .icon {width:16px;height:16px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    Ext.QuickTips.init(); 
+    Ext.onReady(function() {
+      var add_yahoo_link=function(value){
+        var link="<a href='http://tw.stock.yahoo.com/q/q?s=" + value + 
+                 "' target='_blank'>" + value + "</a>";
+        return link;
+        }
+      var edit=function(){
+        Ext.Msg.alert("訊息","編輯");
+        };
+      var del=function(grid,rowIndex,colIndex){
+        Ext.MessageBox.confirm(
+          "確認訊息",
+          "確定要刪除這筆留言?",
+          function(btn) {
+            if (btn=="yes") {
+              var store=grid.getStore();
+              var rec=store.getAt(rowIndex);
+              var name=rec.get("name");
+              store.remove(rec);
+              Ext.Msg.alert("訊息",name + " 已刪除!");
+              }
+            }
+          );
+        };
+      //定義表頭欄位
+      var columns=[{header:"股票名稱",dataIndex:"name"},
+                   {header:"股票代號",dataIndex:"id",
+                    renderer:add_yahoo_link},
+                   {header:"收盤價 (元)",dataIndex:"close"},
+                   {header:"成交量 (張)",dataIndex:"volumn"},
+                   {header:"動作",width:60,
+                    xtype:'actioncolumn',
+                    items:[{icon:"edit.gif",tooltip:"編輯",iconCls:"icon",
+                            altText:"編輯",handler:edit},
+                           {},
+                           {icon:"delete.gif",tooltip:"刪除",iconCls:"icon",
+                            altText:"刪除",handler:del}]
+                    }
+                   ];
+      //定義原始資料
+      var data=[["台積電","2330",123,4425119],
+                ["中華電","2412",96.4,5249],
+                ["中碳","1723",192.5,918],
+                ["創見","2451",108,733],
+                ["華擎","3515",118.5,175],
+                ["訊連","5203",97,235]
+                ];
+      //轉成 Store 物件
+      var store=Ext.create("Ext.data.ArrayStore", {
+          data:data,
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"action"}
+            ]
+          });
+      store.load();
+      //建立 GridPanel 
+      var grid=Ext.create("Ext.grid.Panel",{
+        columns:columns,
+        store:store,
+        renderTo:"grid",
+        width:450,
+        forceFit:true
+        });
+      }); //end of onReady
+  </script>
+</body>
+</html>

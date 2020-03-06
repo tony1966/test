@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      var add_yahoo_link=function(value){
+        var link="<a href='http://tw.stock.yahoo.com/q/q?s=" + value + 
+                 "' target='_blank'>" + value + "</a>";
+        return link;
+        }
+      var add_stars=function(value){
+        var stars=[];
+        for (var i=0; i<value; i++){
+          stars.push("<img src='star.gif' style='width:16px;height:16px;'>");
+          }
+        return stars.join("");;
+        }
+      //定義表頭欄位
+      var columns=[{header:"股票名稱",dataIndex:"name"},
+                   {header:"股票代號",dataIndex:"id",
+                    renderer:add_yahoo_link},
+                   {header:"收盤價 (元)",dataIndex:"close"},
+                   {header:"成交量 (張)",dataIndex:"volumn"},
+                   {header:"投資評等",dataIndex:"stars",
+                    renderer:add_stars}
+                   ];
+      //定義原始資料
+      var data=[["台積電","2330",123,4425119,5],
+                ["中華電","2412",96.4,5249,4],
+                ["中碳","1723",192.5,918,5],
+                ["創見","2451",108,733,3],
+                ["華擎","3515",118.5,175,4],
+                ["訊連","5203",97,235,3]
+                ];
+      //轉成 Store 物件
+      var store=Ext.create("Ext.data.ArrayStore", {
+          data:data,
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"stars"}
+            ]
+          });
+      store.load();
+      //建立 GridPanel 
+      var grid=Ext.create("Ext.grid.Panel",{
+        columns:columns,
+        store:store,
+        renderTo:"grid",
+        width:500,
+        forceFit:true
+        });
+      }); //end of onReady
+  </script>
+</body>
+</html>

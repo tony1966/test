@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      //定義表頭欄位
+      var columns=[{header:"股票名稱",dataIndex:"name"},
+                   {header:"股票代號",dataIndex:"id"},
+                   {header:"收盤價 (元)",dataIndex:"close",
+                    editor:{}
+                    },
+                   {header:"成交量 (張)",dataIndex:"volumn",
+                    editor:{}
+                    }
+                   ];
+      //定義原始資料
+      var data=[["台積電","2330",123,4425119],
+                ["中華電","2412",96.4,5249],
+                ["中碳","1723",192.5,918],
+                ["創見","2451",108,733],
+                ["華擎","3515",118.5,175],
+                ["訊連","5203",97,235]
+                ];
+      //轉成 Store 物件
+      var store=Ext.create("Ext.data.ArrayStore", {
+          autoLoad:true,
+          data:data,
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"action"}
+            ]
+          });
+      //建立 GridPanel 
+      var grid=Ext.create("Ext.grid.Panel",{
+        columns:columns,
+        store:store,
+        renderTo:"grid",
+        width:450,
+        forceFit:true,
+        selType:"cellmodel",
+        plugins:[
+          Ext.create("Ext.grid.plugin.CellEditing")
+          ]
+        });
+      }); //end of onReady
+  </script>
+</body>
+</html>

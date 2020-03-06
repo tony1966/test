@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      //定義表頭欄位
+      var category=Ext.create('Ext.data.Store', {
+        fields:['name'],
+        data:[
+          {"name":"半導體"},
+          {"name":"通信"},
+          {"name":"塑化"},
+          {"name":"模組"},
+          {"name":"主機板"},
+          {"name":"軟體"}
+          ]
+        });
+      var columns=[{header:"股票名稱",dataIndex:"name",width:60},
+                   {header:"股票代號",dataIndex:"id",width:60},
+                   {header:"收盤價 (元)",dataIndex:"close",width:60},
+                   {header:"成交量 (張)",dataIndex:"volumn",width:60,
+                    editor:{
+                      xtype:"numberfield",
+                      step:1
+                      }
+                    },
+                   {header:"股東會日期",dataIndex:"meeting",
+                    xtype:"datecolumn",format:"Y-m-d",
+                    editor:{
+                      xtype:"datefield"
+                      }
+                    },
+                   {header:"董監改選",dataIndex:"election",width:50,
+                    xtype:"booleancolumn",trueText:"是",falseText:"否",
+                    editor:{
+                      xtype:"checkboxfield"
+                      }
+                    },
+                   {header:"類股",dataIndex:"category",width:50,
+                    editor:{
+                      xtype:"combo",
+                      allowBlank:false,
+                      displayField:"name",
+                      store:category
+                      }
+                    }
+                   ];
+      //定義原始資料
+      var data=[["台積電","2330",123,4425119,"2014/06/04",false,"半導體"],
+                ["中華電","2412",96.4,5249,"2014/06/15",false,"通信"],
+                ["中碳","1723",192.5,918,"2014/07/05",true,"塑化"],
+                ["創見","2451",108,733,"2014/06/30",false,"模組"],
+                ["華擎","3515",118.5,175,"2014/07/20",true,"主機板"],
+                ["訊連","5203",97,235,"2014/05/31",false,"軟體"]
+                ];
+      //轉成 Store 物件
+      var store=Ext.create("Ext.data.ArrayStore", {
+          autoLoad:true,
+          data:data,
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"meeting"},
+            {name:"election"},
+            {name:"category"}
+            ]
+          });
+      //建立 GridPanel 
+      var grid=Ext.create("Ext.grid.Panel",{
+        columns:columns,
+        store:store,
+        renderTo:"grid",
+        width:600,
+        forceFit:true,
+        selType:"cellmodel",
+        plugins:[{ptype:"cellediting",clicksToEdit:1}]
+        });
+      }); //end of onReady
+  </script>
+</body>
+</html>

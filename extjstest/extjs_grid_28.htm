@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    Ext.QuickTips.init();
+    Ext.onReady(function() {
+      //定義表頭欄位
+      var category=Ext.create('Ext.data.Store', {
+        fields:['name'],
+        data:[
+          {"name":"半導體"},
+          {"name":"通信"},
+          {"name":"塑化"},
+          {"name":"模組"},
+          {"name":"主機板"},
+          {"name":"軟體"}
+          ]
+        });
+      var columns=[{header:"股票名稱",dataIndex:"name",width:60,
+                    editor:{}
+                    },
+                   {header:"股票代號",dataIndex:"id",width:60,
+                    editor:{}
+                    },
+                   {header:"收盤價 (元)",dataIndex:"close",width:60,
+                    editor:{}
+                    },
+                   {header:"成交量 (張)",dataIndex:"volumn",width:60,
+                    editor:{
+                      xtype:"numberfield",
+                      step:1
+                      }
+                    },
+                   {header:"股東會日期",dataIndex:"meeting",
+                    xtype:"datecolumn",format:"Y-m-d",
+                    editor:{
+                      xtype:"datefield"
+                      }
+                    },
+                   {header:"董監改選",dataIndex:"election",width:50,
+                    xtype:"booleancolumn",trueText:"是",falseText:"否",
+                    editor:{
+                      xtype:"checkboxfield"
+                      }
+                    },
+                   {header:"類股",dataIndex:"category",width:50,
+                    editor:{
+                      xtype:"combo",
+                      displayField:"name",
+                      store:category
+                      }
+                    }
+                   ];
+      //轉成 Store 物件
+      var store=Ext.create("Ext.data.Store", {
+          autoLoad:true,
+          proxy:{
+            type:"ajax",
+            url:"get_stocks.php",
+            reader:{
+              type:"json",
+              totalProperty:"totalProperty",
+              root:"root",
+              idProperty:"id"
+              }
+            },
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"meeting"},
+            {name:"election",type:"boolean"},
+            {name:"category"}
+            ]
+          });
+      //建立 GridPanel 
+      var grid=Ext.create("Ext.grid.Panel",{
+        title:"台股",
+        tools:[{id:"refresh",qtip:"重載",
+                handler:function(){store.load();}
+                }
+               ],
+        columns:columns,
+        store:store,
+        renderTo:"grid",
+        width:600,
+        forceFit:true,
+        selType:"rowmodel",
+        plugins:[{ptype:"rowediting",
+                  clicksToEdit:2,
+                  saveBtnText:"儲存",
+                  cancelBtnText:"取消"}
+                 ],
+        tbar:{
+          xtype:'toolbar',
+          frame:true,
+          border:false,
+          padding:2,
+          items:[
+            "->",
+            "-",
+            {xtype:"button",text:"新增",handler:addRecord},
+            "-",
+            {xtype:"button",text:"刪除",handler:delRecord},
+            "-"
+            ]
+          }
+        });
+      function addRecord() {
+        var rec={name:"",id:"",close:"",volumn:"",meeting:"",election:"",
+                 category:""};
+        store.insert(0,rec);
+        }
+      function delRecord() {
+        var sm=grid.getSelectionModel();
+        var rec=sm.getSelection()[0];
+        if (rec==undefined) {Ext.Msg.alert("訊息","請選擇欲刪除之紀錄!");}
+        else {
+          Ext.Msg.confirm("確認","確定要刪除?",function(btn){
+            if (btn=="yes") {
+              store.remove(rec);
+              }
+            });
+          }
+        }
+      }); //end of onReady
+  </script>
+</body>
+</html>

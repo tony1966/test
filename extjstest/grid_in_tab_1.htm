@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      var columns=[{header:"股票名稱",dataIndex:"name",width:60},
+                   {header:"股票代號",dataIndex:"id",width:60},
+                   {header:"收盤價 (元)",dataIndex:"close",width:60},
+                   {header:"成交量 (張)",dataIndex:"volumn",width:60},
+                   {header:"股東會日期",dataIndex:"meeting"},
+                   {header:"董監改選",dataIndex:"election",width:50}];
+      var data=[["台積電","2330",123,4425119,"2014/06/04",false],
+                ["中華電","2412",96.4,5249,"2014/06/15",false],
+                ["中碳","1723",192.5,918,"2014/07/05",true],
+                ["創見","2451",108,733,"2014/06/30",false],
+                ["華擎","3515",118.5,175,"2014/07/20",true],
+                ["訊連","5203",97,235,"2014/05/31",false]];
+      var store1=Ext.create("Ext.data.ArrayStore", {
+          autoLoad:true,
+          data:data,
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"meeting"},
+            {name:"election"}
+            ]
+          });
+      var store2=Ext.create("Ext.data.Store", {
+          autoLoad:true,
+          proxy:{
+            type:"ajax",
+            url:"get_stocks.php",
+            reader:{
+              type:"json",
+              totalProperty:"totalProperty",
+              root:"root",
+              idProperty:"id"
+              }
+            },
+          fields:[
+            {name:"name"},
+            {name:"id"},
+            {name:"close"},
+            {name:"volumn"},
+            {name:"meeting"},
+            {name:"election"}
+            ]
+          }); 
+      var grid1=Ext.create("Ext.grid.Panel",{
+        title:"台股 (近端資料)",
+        columns:columns,
+        store:store1,
+        width:500,
+        forceFit:true
+        });
+      var grid2=Ext.create("Ext.grid.Panel",{
+        title:"台股 (遠端資料)",
+        columns:columns,
+        store:store2,
+        width:500,
+        forceFit:true
+        });
+      var tp=Ext.create("Ext.TabPanel",{
+        title:"台股",
+        width:600,
+        height:300,
+        style:"margin:10px;",
+        frame:true,
+        autoScroll:false,
+        defaults:{bodyPadding:10},
+        items:[
+          grid1,
+          grid2,
+          {title:"管理",html:"管理"}
+          ],
+        renderTo:Ext.getBody()
+        });         
+      }); //end of onReady
+  </script>
+</body>
+</html>

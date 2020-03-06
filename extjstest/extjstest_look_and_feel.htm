@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css">
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      var btn_alert=new Ext.Button({
+          text : "訊息框",
+          width : 100,
+          renderTo : Ext.getBody(),
+          handler : function(btn) {
+            Ext.MessageBox.alert("通知訊息", "您好! Hello World!");
+            }
+          });
+      var neptune=new Ext.Button({
+          text : "Neptune",
+          width : 100,
+          renderTo : Ext.getBody(),
+          handler : function() {
+            var url="extjs-4.2.1/resources/css/ext-all-neptune.css";
+            Ext.util.CSS.swapStyleSheet("theme",url);
+            }
+          });
+      var gray=new Ext.Button({
+          text : "Gray",
+          width : 100,
+          renderTo : Ext.getBody(),
+          handler : function() {
+            var url="extjs-4.2.1/resources/css/ext-all-gray.css";
+            Ext.util.CSS.swapStyleSheet("theme",url);
+            }
+          });
+      var access=new Ext.Button({
+          text : "Access",
+          width : 100,
+          renderTo : Ext.getBody(),
+          handler : function() {
+            var url="extjs-4.2.1/resources/css/ext-all-access.css";
+            Ext.util.CSS.swapStyleSheet("theme",url);
+            }
+          });
+      var Default=new Ext.Button({
+          text : "Default",
+          width : 100,
+          renderTo : Ext.getBody(),
+          handler : function() {
+            var url="extjs-4.2.1/resources/css/ext-all.css";
+            Ext.util.CSS.swapStyleSheet("theme",url);
+            }
+          });
+      }); //end of onReady
+  </script>
+</body>
+</html>

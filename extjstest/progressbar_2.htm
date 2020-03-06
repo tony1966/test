@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css" />
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+  <style>
+    body {padding:30px;}
+  </style>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      var progressbar1=new Ext.ProgressBar({
+                                           width: 300, 
+                                           renderTo: Ext.getBody()
+                                           });
+      var progressbar2=new Ext.ProgressBar({
+                                           width: 300, 
+                                           renderTo: Ext.getBody()
+                                           });
+      var progressbar3=new Ext.ProgressBar({
+                                           width: 300, 
+                                           renderTo: Ext.getBody()
+                                           });
+      progressbar1.wait({
+        duration:10000,
+        interval:1000,
+        increment:10,
+        text:"進度條 1 號 ...",
+        scope:this,
+        fn:function(){
+          progressbar1.hide();
+          }
+        });
+      progressbar2.wait({
+        duration:10000,
+        interval:500,
+        increment:10,
+        text:"進度條 2 號 ...",
+        scope:this,
+        fn:function(){
+          progressbar2.hide();
+          }
+        });
+      progressbar3.wait({
+        duration:10000,
+        interval:400,
+        increment:25,
+        text:"進度條 3 號 ...",
+        scope:this,
+        fn:function(){
+          progressbar3.hide();
+          }
+        });
+      });
+  </script>
+</body>
+</html>

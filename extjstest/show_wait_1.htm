@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css" />
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      var wait=Ext.MessageBox.show({
+                 title: "等待訊息",
+                 msg: "請耐心等候!",
+                 width: 300,
+                 progress: true
+                 });
+      var timer=window.setInterval(update,1000);
+      var i=0;
+      function update() {
+        if (i>10) {
+            window.clearInterval(timer); //停止定時器
+            wait.hide(); //隱藏等候框
+            Ext.Msg.alert("通知訊息", "檔案處理完成!");
+            }
+        else {
+            wait.updateProgress(i/10, "檔案處理中 ...(" + i*10 + "%)");
+            ++i;
+            }        
+        }
+      });
+  </script>
+</body>
+</html>

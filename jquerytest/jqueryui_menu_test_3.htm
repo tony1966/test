@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+      font-size:65%;
+      }
+    .ui-menu {width: 100px;}
+  </style>
+</head>
+<body>
+  <ul id="books">
+    <li>
+      <div>
+        <a>網路書店</a>
+      </div>
+      <ul>
+        <li>
+          <div>
+            <a href="https://www.books.com.tw" target="_blank">博客來</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="https://www.kingstone.com.tw" target="_blank">金石堂</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="http://www.eslite.com.tw" target="_blank">誠品</a>
+          </div>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <div>
+        <a>圖書館</a>
+      </div>
+      <ul>
+        <li>
+          <div>
+            <a href="https://nkust.primo.exlibrisgroup.com" target="_blank">高科大</a>
+          </div>
+        </li>
+        <li>
+          <div>
+            <a href="https://www.ksml.edu.tw" target="_blank">高雄市圖</a>
+          </div>
+        </li>
+      </ul>    
+    </li>
+  </ul>
+  <script>
+    $(document).ready(function(){
+      $("#books").menu();
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 測試</title>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  <p id="p1"></p>
+  <p id="p2"></p>
+  <script language="JavaScript">
+    $(document).ready(function(){
+      var stock_name=["味王", "車王電", "葡萄王", "王品"];
+      var stock_id=["1203", "1533", "1707", "2727"]
+      var stock={"味王":"1203", "車王電":"1533","葡萄王":"1707", "王品":"2727"};
+      $.each(stock_name, 
+             function(index, value) {
+               $("#p1").append(index + ":" + value + "<br>");
+               }
+             );
+      $.each(stock, 
+             function(key, value) {
+               $("#p2").append(key + ":" + value + "<br>");
+               }
+             );
+      });
+  </script>
+</body>
+</html>

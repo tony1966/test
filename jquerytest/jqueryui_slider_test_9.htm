@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>
+  <div id="hslider" style="width:200px;"></div><br>
+  <button id="toggle" class="ui-button ui-widget ui-corner-all">Toggle</button>
+  <script>
+    $(document).ready(function(){
+      $("#hslider").slider({
+        min: 0, 
+        max: 100,
+        disabled: true
+        });
+      $("#toggle").click(function(e) {
+        var isDisabled=$("#hslider").slider("option", "disabled");
+        if (isDisabled) { //現在是不可用狀態
+          $("#hslider").slider("option", "disabled", false);
+          }
+        else {  //現在是可用狀態
+          $("#hslider").slider("disable");
+          }
+        });
+      });
+  </script>
+</body>
+</html>

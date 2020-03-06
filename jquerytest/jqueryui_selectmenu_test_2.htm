@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+      font-size:12px;
+      }
+  </style>
+</head>
+<body>
+  <select id="language">
+    <option value="">最擅長的程式語言</option>
+    <option value="C">C</option>
+    <option value="R">R</option>
+    <option value="Java">Java</option>
+    <option value="Python">Python</option>
+    <option value="Javascript">Javascript</option>
+  </select>
+  <button id="open-close">Open</button>
+  <button id="enable-disable">Enable</button>
+  <p id="output"></p>
+  <script>
+    $(document).ready(function(){
+      var config={
+        width: 180,
+        disabled: true,
+        icons: {button: "ui-icon-circle-triangle-s"}
+        };
+      $("#language").selectmenu(config);
+      $('#language').on('selectmenuchange', function() {
+        var language=$(this).val();
+        $("#output").html("最擅長的程式語言是 : " + language);
+        });
+      $("#open-close").button();
+      $("#open-close").on("click", function() {
+        var str=$("#open-close").html();
+        if (str=="Open") {
+          $("#language").selectmenu("open");
+          $("#open-close").html("Close");
+          }
+        else {
+          $("#language").selectmenu("close");
+          $("#open-close").html("Open");
+          }
+        });
+      $("#enable-disable").button();
+      $("#enable-disable").on("click", function() {
+        var str=$("#enable-disable").html();
+        if (str=="Enable") {
+          $("#language").selectmenu("option", "disabled", false);
+          //$("#language").selectmenu("enable");  //另一個做法
+          $("#enable-disable").html("Disable");
+          }
+        else {
+          $("#language").selectmenu("disable");
+          $("#enable-disable").html("Enable");
+          }
+        });
+      });
+  </script>
+</body>
+</html>

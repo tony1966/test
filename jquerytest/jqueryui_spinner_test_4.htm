@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>  
+  <input id="spinner1">
+  <button id="toggle" class="ui-button ui-widget ui-corner-all">Disable</button>
+  <script>
+    $(document).ready(function(){
+      var config={}
+      $("#spinner1").spinner(config);
+      $("#toggle").click(function(e) {
+        var text=$("#toggle").html();
+        if (text=="Disable") {
+          $("#spinner1").spinner("disable");
+          $("#toggle").html("Enable");
+          }
+        else {
+          $("#spinner1").spinner("enable");
+          $("#toggle").html("Disable");
+          }
+        });
+      });
+  </script>
+</body>
+</html>

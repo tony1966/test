@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+	<link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>
+  <button id="login" class="ui-button ui-widget ui-corner-all">登入系統</button>
+  <div id="login_inputbox">
+    <p>請輸入帳號密碼</p>
+    <p>帳號 : <input id="account" type="text"></p>
+    <p>密碼 : <input id="password" type="password"></p>
+  </div>
+  <div id="login_result">
+    <p>帳號或密碼錯誤</p>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $("#login" ).click(function(e) {
+	      $("#login_inputbox").dialog("open");
+	      e.preventDefault();
+        });
+      var check_login=function() {
+        //check database
+        $(this).dialog("close");
+        $("#login_result").dialog("open");
+        }
+      $("#login_inputbox").dialog({
+        autoOpen: false,
+        modal: true,
+        title: "登入系統",
+        buttons: {
+          "取消": function() {$(this).dialog("close");},
+          "確定": check_login
+          }
+        });
+      $("#login_result").dialog({
+        autoOpen: false,
+        modal: true,
+        title: "登入失敗",
+        buttons: {
+          確定: function() {
+                $(this).dialog("close");
+                }
+          }
+        });
+      });
+  </script>
+</body>
+</html>

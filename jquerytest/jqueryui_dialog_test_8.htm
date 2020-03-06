@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+	<link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>
+  <button id="f2c" class="ui-button ui-widget ui-corner-all">攝氏轉華氏</button>
+  <div id="f2c_inputbox">
+    <p>請輸入攝氏溫度</p>
+    <p><input id="c" type="text"></p>
+  </div>
+  <div id="result_msgbox"></div>
+  <script>
+    $(document).ready(function(){
+      $("#f2c" ).click(function(e) {
+	      $("#f2c_inputbox").dialog("open");
+	      e.preventDefault();
+        });
+      var compute=function() {                  
+        var c=parseFloat($("#c").val()); 
+        var f=c*9/5 + 32; 
+        f=f.toFixed(1); 
+        $("#result_msgbox").html("攝氏 " + c + " 度=華氏 " + f + " 度");
+        $("#result_msgbox").dialog("open");
+        $(this).dialog("close");
+        }
+      $("#f2c_inputbox").dialog({
+        autoOpen: false,
+        modal: true,
+        title: "資料輸入",
+        buttons: {
+          "取消": function() {$(this).dialog("close");},
+          "確定": compute
+          }
+        });
+      $("#result_msgbox").dialog({
+        autoOpen: false,
+        modal: true,
+        title: "換算結果",
+        buttons: {確定: function() {$(this).dialog("close");}}
+        });
+      });
+  </script>
+</body>
+</html>

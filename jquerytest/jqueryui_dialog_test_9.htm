@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+	<link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>
+  <button id="select_fruit" class="ui-button ui-widget ui-corner-all">水果喜好調查</button>
+  <div id="fruit_inputbox">
+    <p>1.請選擇最喜歡的水果</p>
+    <p>
+      <select id="favorite_fruit">
+        <option>芭樂</option>
+        <option>香蕉</option>
+        <option>葡萄</option>
+        <option>榴槤</option>
+        <option>木瓜</option>
+      </select>
+    </p>
+    <p>2.請選擇最討厭的水果</p>
+    <p>
+      <input type="radio" name="hatest_fruit" value="芭樂"> 芭樂 
+      <input type="radio" name="hatest_fruit" value="香蕉"> 香蕉 
+      <input type="radio" name="hatest_fruit" value="葡萄"> 葡萄
+      <input type="radio" name="hatest_fruit" value="榴槤"> 榴槤 
+      <input type="radio" name="hatest_fruit" value="木瓜"> 木瓜 
+    </p>
+    <p>3.請選擇最常吃的水果</p>
+    <p>
+      <input type="checkbox" name="often_fruit" value="芭樂"> 芭樂 
+      <input type="checkbox" name="often_fruit" value="香蕉"> 香蕉 
+      <input type="checkbox" name="often_fruit" value="葡萄"> 葡萄 
+      <input type="checkbox" name="often_fruit" value="榴槤"> 榴槤 
+      <input type="checkbox" name="often_fruit" value="木瓜"> 木瓜 
+    </p>
+  </div>
+  <div id="result_msgbox"></div>
+  <script>
+    $(document).ready(function(){
+      $("#select_fruit" ).click(function(e) {
+	      $("#fruit_inputbox").dialog("open");
+	      e.preventDefault();
+        });
+      var confirm=function() {                  
+        var favorite_fruit=$("#favorite_fruit").val();
+        var hatest_fruit=$("[name=hatest_fruit]:radio:checked").val();
+        var arr=[];
+        $("[name=often_fruit]:checkbox:checked").each(function(){
+          arr.push($(this).val());
+          });
+        var often_fruit=arr.join();
+        var msg="您最喜歡的水果是 : " + favorite_fruit + "<br>" +
+                "您最討厭的水果是 : " + hatest_fruit + "<br>" + 
+                "您最常吃的水果是 : " + often_fruit; 
+        $("#result_msgbox").html(msg);
+        $("#result_msgbox").dialog("open");
+        $(this).dialog("close");
+        }
+      $("#fruit_inputbox").dialog({
+        autoOpen: false,
+        modal: true,
+        title: "資料選擇",
+        buttons: {
+          "取消": function() {$(this).dialog("close");},
+          "確定": confirm
+          }
+        });
+      $("#result_msgbox").dialog({
+        autoOpen: false,
+        modal: true,
+        title: "選擇結果",
+        buttons: {確定: function() {$(this).dialog("close");}}
+        });
+      });
+  </script>
+</body>
+</html>

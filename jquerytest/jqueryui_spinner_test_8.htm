@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>  
+  <p>R <input id="red"></p>
+  <p>G <input id="green"></p>
+  <p>B <input id="blue"></p>
+  <div id="canvas" style="width:200px;height:100px;border-style:solid;">
+  </div>
+  <script>
+    $(document).ready(function(){
+      var setcolor=function() {
+        var r=$("#red").spinner("value");
+        var g=$("#green").spinner("value");
+        var b=$("#blue").spinner("value");
+        var bgcolor="rgb(" + r + "," + g + "," + b + ")";
+        $("#canvas").css("background-color", bgcolor);
+        };
+      $("#red").spinner({min: 0, max: 255, spin: setcolor});
+      $("#green").spinner({min: 0, max: 255, spin: setcolor});
+      $("#blue").spinner({min: 0, max: 255, spin: setcolor}); 
+      });
+  </script>
+</body>
+</html>

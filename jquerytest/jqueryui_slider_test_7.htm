@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/hot-sneaks/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>
+  <div id="hslider" style="width:200px;"></div>
+  <p>
+    L: <span id="hslider_value_L"></span>  
+    H: <span id="hslider_value_H"></span>  
+  </p>
+  <script>
+    $(document).ready(function(){
+      $("#hslider").slider({
+        min: 0, 
+        max: 100,
+        range: true,
+        values: [20, 80],
+        create: function(e, ui) {
+          var style={"width":"20px","text-align":"center"};
+          $(this).find(".ui-slider-handle").css(style);
+          },
+        slide: function(e, ui) {
+          $("#hslider_value_L").html(ui.values[0]);
+          $("#hslider_value_H").html(ui.values[1]);
+          $(this).find(".ui-state-focus").html(ui.value);
+          }
+        });
+      });
+  </script>
+</body>
+</html>

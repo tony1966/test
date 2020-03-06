@@ -1,9 +1,6 @@
 <?php
 header('Content-Type: text/html;charset=UTF-8');
-$host="mysql.1freehosting.com"; 
-$username="u911852767_test";
-$password="a5572056";
-$database="u911852767_test";
+include("db.php");
 $conn=mysql_connect($host, $username, $password); //建立連線
 mysql_query("SET NAMES 'utf8'"); //設定查詢所用之字元集為 utf-8
 mysql_select_db($database, $conn); //開啟資料庫

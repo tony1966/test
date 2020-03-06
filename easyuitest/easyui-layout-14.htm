@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>  
+  <a href="#" class="easyui-linkbutton" id="change">更改 Center</a>
+  <br><br>
+  <div id="layout-1" class="easyui-layout" style="width:300px;height:200px;">
+    <div data-options="region:'north',title:'North'" style="height:50px;"></div>
+    <div data-options="region:'east',title:'East'" style="width:100px;"></div>
+    <div data-options="region:'south',title:'South'" style="height:50px;"></div>
+    <div data-options="region:'west',title:'West'" style="width:100px;"></div>
+    <div data-options="region:'center',title:'Center'" style="height:100px;"></div>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#change").bind("click",function(){
+        var p=$("#layout-1").layout("panel","center");
+        p.panel({
+          closable:true,
+          tools:[{
+            iconCls:"icon-add",
+            handler:function(){$.messager.alert("Info","add")}
+            }]
+          });
+        });
+      });
+  </script>
+</body>
+</html>

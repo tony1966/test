@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div id="layout-1"></div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#layout-1").layout({width:300,height:200});
+      $("#layout-1").layout("add",{
+        region:"north",
+        title:"North",
+        height:50,
+        content:"北",
+        split:true});
+      $("#layout-1").layout("add",{
+        region:"east",
+        title:"East",
+        width:100,
+        content:"東",
+        split:true});
+      $("#layout-1").layout("add",{
+        region:"south",
+        title:"South",
+        height:50,
+        content:"南",
+        split:true});
+      $("#layout-1").layout("add",{
+        region:"west",
+        title:"West",
+        width:100,
+        content:"西",
+        split:true});
+      $("#layout-1").layout("add",{
+        region:"center",
+        title:"Center",
+        height:100,
+        content:"中",
+        split:true});
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DataGrid-PHP JSON</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    body{
+      font-family:verdana,helvetica,arial,sans-serif;
+      padding:20px;
+      font-size:12px;
+      margin:0;
+      }
+    h2{
+      font-size:18px;
+      font-weight:bold;
+      margin:0;
+      margin-bottom:15px;
+      }
+  </style>
+</head>
+<body>
+  <h2>盤後資訊</h2>
+  <div style="margin:20px 0;"></div>
+	
+  <table id="grid1" title="台股" style="width:700px;height:250px"></table>
+  <script language="javascript">
+    $(document).ready(function(){ 
+      $('#grid1').datagrid({
+        url:'get_stocks.php',
+        columns:[[
+          {field:'name',title:'股票名稱',width:80},
+          {field:'id',title:'股票代號',width:80},
+          {field:'close',title:'收盤價 (元)',width:100,align:'right'},
+          {field:'volumn',title:'成交量 (張)',width:100,align:'right'},
+          {field:'meeting',title:'股東會日期',align:'left'},
+          {field:'election',title:'董監改選',width:80,align:'center'},
+          {field:'category',title:'類股',width:60,align:'center'}
+          ]],
+        singleSelect:true,
+        collapsible:true,
+        pagination:true
+        });
+      });
+  </script>
+</body>
+</html>

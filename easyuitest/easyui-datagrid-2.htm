@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DataGrid-PHP JSON</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    body{
+      font-family:verdana,helvetica,arial,sans-serif;
+      padding:20px;
+      font-size:12px;
+      margin:0;
+      }
+    h2{
+      font-size:18px;
+      font-weight:bold;
+      margin:0;
+      margin-bottom:15px;
+      }
+  </style>
+</head>
+<body>
+  <h2>盤後資訊</h2>
+  <div style="margin:20px 0;"></div>
+	
+  <table class="easyui-datagrid" title="台股" style="width:700px;height:250px"
+    data-options="singleSelect:true,collapsible:true,url:'get_stocks.php',method:'get'">
+    <thead>
+      <tr>
+        <th data-options="field:'name',width:80">股票名稱</th>
+        <th data-options="field:'id',width:80">股票代號</th>
+        <th data-options="field:'close',width:100,align:'right'">收盤價 (元)</th>
+        <th data-options="field:'volumn',width:100,align:'right'">成交量 (張)</th>
+        <th data-options="field:'meeting',align:'left'">股東會日期</th>
+        <th data-options="field:'election',width:80,align:'center'">董監改選</th>
+        <th data-options="field:'category',width:60,align:'center'">類股</th>
+      </tr>
+    </thead>
+  </table>
+
+</body>
+</html>

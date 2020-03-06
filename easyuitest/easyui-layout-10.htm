@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <a href="#" class="easyui-linkbutton" id="collapse-east">縮合 East</a>
+  <a href="#" class="easyui-linkbutton" id="collapse-west">縮合 West</a>
+  <a href="#" class="easyui-linkbutton" id="collapse-south">縮合 South</a>
+  <a href="#" class="easyui-linkbutton" id="collapse-north">縮合 North</a>
+  <a href="#" class="easyui-linkbutton" id="collapse-center">縮合 Center</a>
+  <br>
+  <a href="#" class="easyui-linkbutton" id="expand-east">展開 East</a>
+  <a href="#" class="easyui-linkbutton" id="expand-west">展開 West</a>
+  <a href="#" class="easyui-linkbutton" id="expand-south">展開 South</a>
+  <a href="#" class="easyui-linkbutton" id="expand-north">展開 North</a>
+  <a href="#" class="easyui-linkbutton" id="expand-center">展開 Center</a>
+  <br><br>
+  <div id="layout-1" class="easyui-layout" style="width:300px;height:200px;">
+    <div data-options="region:'north',title:'North'" style="height:50px;"></div>
+    <div data-options="region:'east',title:'East'" style="width:100px;"></div>
+    <div data-options="region:'south',title:'South'" style="height:50px;"></div>
+    <div data-options="region:'west',title:'West'" style="width:100px;"></div>
+    <div data-options="region:'center',title:'Center'" style="height:100px;"></div>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){   
+      $("#collapse-east").bind("click",function(){
+        $("#layout-1").layout("collapse","east");
+        });
+      $("#collapse-west").bind("click",function(){
+        $("#layout-1").layout("collapse","west");
+        });
+      $("#collapse-south").bind("click",function(){
+        $("#layout-1").layout("collapse","south");
+        });
+      $("#collapse-north").bind("click",function(){
+        $("#layout-1").layout("collapse","north");
+        });
+      $("#collapse-center").bind("click",function(){
+        $("#layout-1").layout("collapse","center");
+        });
+      $("#expand-east").bind("click",function(){
+        $("#layout-1").layout("expand","east");
+        });
+      $("#expand-west").bind("click",function(){
+        $("#layout-1").layout("expand","west");
+        });
+      $("#expand-south").bind("click",function(){
+        $("#layout-1").layout("expand","south");
+        });
+      $("#expand-north").bind("click",function(){
+        $("#layout-1").layout("expand","north");
+        });
+      $("#expand-center").bind("click",function(){
+        $("#layout-1").layout("expand","center");
+        });
+      });
+  </script>
+</body>
+</html>

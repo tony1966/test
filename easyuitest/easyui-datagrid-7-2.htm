@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DataGrid-PHP JSON</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    body{
+      font-family:verdana,helvetica,arial,sans-serif;
+      padding:20px;
+      font-size:12px;
+      margin:0;
+      }
+    h2{
+      font-size:18px;
+      font-weight:bold;
+      margin:0;
+      margin-bottom:15px;
+      }
+  </style>
+</head>
+<body>
+  <h2>盤後資訊</h2>
+  <div style="margin:20px 0;"></div>
+	
+  <table id="grid1" title="台股" style="width:600px;"></table>
+  <script language="javascript">
+    $(document).ready(function(){ 
+      $('#grid1').datagrid({
+        url:'get_stocks_list_page.php',
+        columns:[[
+          {field:'stock_name',title:'股票名稱',width:100},
+          {field:'stock_id',title:'股票代號',width:100}
+          ]],
+        singleSelect:true,
+        collapsible:true,
+        pagination:true,
+        pagePosition:'both',
+        pageSize:10,
+        rownumbers:true
+        });
+      });
+  </script>
+</body>
+</html>

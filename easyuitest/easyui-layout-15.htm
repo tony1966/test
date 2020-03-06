@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>  
+  <div id="layout-1" class="easyui-layout" style="width:800px;height:400px;">
+    <div data-options="region:'west',title:'範例',split:true" style="width:150px;">
+      <ul>
+        <li><a href="#" id="exam-1">Exam-1</a></li>
+        <li><a href="#" id="exam-2">Exam-2</a></li>
+      </ul>    
+    </div>
+    <div id="content" data-options="region:'center',title:'結果',split:true"></div>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){   
+      $("#exam-1").bind("click",function(){
+        var html='<table id="grid1"></table>';
+        $("#content").html(html);
+        $('#grid1').datagrid({
+          fitColumns:true,
+          border:false,
+          url:'get_stocks_search.php',
+          columns:[[
+            {field:'name',title:'股票名稱',width:80,sortable:true},
+            {field:'id',title:'股票代號',width:80,sortable:true},
+            {field:'close',title:'收盤價 (元)',width:100,align:'right',sortable:true},
+            {field:'volumn',title:'成交量 (張)',width:100,align:'right',sortable:true},
+            {field:'meeting',title:'股東會日期',align:'left',sortable:true},
+            {field:'election',title:'董監改選',width:80,align:'center',sortable:true},
+            {field:'category',title:'類股',width:60,align:'center',sortable:true}
+            ]],
+          singleSelect:true,
+          collapsible:true
+          });
+        });
+      $("#exam-2").bind("click",function(){
+        var html='<table id="grid2"></table>';
+        $("#content").html(html);
+        $('#grid2').datagrid({          
+          fitColumns:true,
+          border:false,
+          url:'get_stocks_list_search.php',
+          columns:[[
+            {field:'stock_name',title:'股票名稱',width:100,sortable:true},
+            {field:'stock_id',title:'股票代號',width:100,sortable:true}
+            ]],
+          singleSelect:true,
+          collapsible:true,
+          pagination:true,
+          pageSize:10,
+          rownumbers:true
+          });
+        });
+      });
+  </script>
+</body>
+</html>

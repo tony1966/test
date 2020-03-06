@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DataGrid-PHP JSON</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    body{
+      font-family:verdana,helvetica,arial,sans-serif;
+      padding:20px;
+      font-size:12px;
+      margin:0;
+      }
+    h2{
+      font-size:18px;
+      font-weight:bold;
+      margin:0;
+      margin-bottom:15px;
+      }
+  </style>
+</head>
+<body>
+  <h2>盤後資訊</h2>
+  <div style="margin:20px 0;"></div>
+	
+  <table class="easyui-datagrid" title="台股" style="width:700px;height:250px"
+    data-options="singleSelect:true,collapsible:true">
+    <thead>
+      <tr>
+        <th data-options="field:'name',width:80">股票名稱</th>
+        <th data-options="field:'id',width:80">股票代號</th>
+        <th data-options="field:'close',width:100,align:'right'">收盤價 (元)</th>
+        <th data-options="field:'volumn',width:100,align:'right'">成交量 (張)</th>
+        <th data-options="field:'meeting',align:'left'">股東會日期</th>
+        <th data-options="field:'election',width:80,align:'center'">董監改選</th>
+        <th data-options="field:'category',width:60,align:'center'">類股</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>台積電</td>
+        <td>2330</td>
+        <td>123</td>
+        <td>4425119</td>
+        <td>2014-06-04</td>
+        <td>0</td>
+        <td>半導體</td>
+      </tr>
+      <tr>
+        <td>中華電</td>
+        <td>2412</td>
+        <td>96.4</td>
+        <td>5249</td>
+        <td>2014-06-15</td>
+        <td>0</td>
+        <td>通信</td>
+      </tr>
+      <tr>
+        <td>中碳</td>
+        <td>1723</td>
+        <td>192.5</td>
+        <td>918</td>
+        <td>2014-07-05</td>
+        <td>0</td>
+        <td>塑化</td>
+      </tr>
+      <tr>
+        <td>創見</td>
+        <td>2451</td>
+        <td>108</td>
+        <td>733</td>
+        <td>2014-06-30</td>
+        <td>0</td>
+        <td>模組</td>
+      </tr>
+      <tr>
+        <td>華擎</td>
+        <td>3515</td>
+        <td>118.5</td>
+        <td>175</td>
+        <td>2014-07-20</td>
+        <td>0</td>
+        <td>主機板</td>
+      </tr>
+      <tr>
+        <td>訊連</td>
+        <td>5203</td>
+        <td>97</td>
+        <td>235</td>
+        <td>2014-05-31</td>
+        <td>0</td>
+        <td>軟體</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+</html>

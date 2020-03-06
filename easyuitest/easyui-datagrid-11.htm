@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>DataGrid-PHP JSON</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+  <style>
+    body{
+      font-family:verdana,helvetica,arial,sans-serif;
+      padding:20px;
+      font-size:12px;
+      margin:0;
+      }
+    h2{
+      font-size:18px;
+      font-weight:bold;
+      margin:0;
+      margin-bottom:15px;
+      }
+  </style>
+</head>
+<body>
+  <h2>盤後資訊</h2>
+  <div id="tool_bar" style="padding:3px">
+    <select id="search_field">
+      <option value="name">股票名稱</option>
+      <option value="id">股票代號</option>
+    </select>
+    <input id="search_what" style="line-height:15px;border:1px solid #ccc">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-search" onclick="doSearch()">搜尋</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" onclick="doAdd()">新增</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" onclick="doEdit()">編輯</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" onclick="doRemove()">刪除</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-save" onclick="doSave()">儲存</a>
+  </div>
+  <script type="text/javascript">
+    function doSearch(){
+      $('#grid1').datagrid('load',{
+        search_field: $('#search_field').val(),
+        search_what: $('#search_what').val()
+        });
+      }
+    function doAdd(){$.messager.alert('訊息','新增!');}
+    function doEdit(){$.messager.alert('訊息','編輯!');}
+    function doRemove(){$.messager.alert('訊息','刪除!');}
+    function doSave(){$.messager.alert('訊息','儲存!');}
+  </script>
+  <table id="grid1" title="台股" style="width:600px;" toolbar="#tool_bar"></table>
+  <script language="javascript">
+    $(document).ready(function(){
+      $('#grid1').datagrid({
+        url:'get_stocks_search.php',
+        columns:[[
+          {field:'name',title:'股票名稱',width:80,sortable:true},
+          {field:'id',title:'股票代號',width:80,sortable:true},
+          {field:'close',title:'收盤價 (元)',width:100,align:'right',sortable:true},
+          {field:'volumn',title:'成交量 (張)',width:100,align:'right',sortable:true},
+          {field:'meeting',title:'股東會日期',align:'left',sortable:true},
+          {field:'election',title:'董監改選',width:80,align:'center',sortable:true},
+          {field:'category',title:'類股',width:60,align:'center',sortable:true}
+          ]],
+        singleSelect:true,
+        collapsible:true
+        });
+      });
+  </script>
+</body>
+</html>

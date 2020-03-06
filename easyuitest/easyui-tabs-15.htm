@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div id="tab1">
+    <div title="標題 1" style="padding:10px;">內容 1</div>
+    <div title="標題 2" style="padding:10px;">內容 2</div>
+    <div title="標題 3" style="padding:10px;">內容 3</div>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#tab1").tabs({
+        width:300,
+        height:200,
+        tools:[{
+          iconCls:'icon-add',
+          handler:function(){
+            $("#tab1").tabs("add",{
+              title:"新頁籤",
+              collapsible:true,
+              closable:true,
+              href:"hellosomebody-get.php?name=Tony&surname=Huang",
+              loadingMessage:"載入中..."
+              });
+            }
+          },{
+          iconCls:'icon-remove',
+          handler:function(){
+            var tab=$("#tab1").tabs("getSelected");
+            if (tab){
+              var index=$("#tab1").tabs("getTabIndex",tab);
+              $("#tab1").tabs("close",index);
+              var tabs=$("#tab1").tabs("tabs");
+              $("#tab1").tabs("select",tabs.length-1);
+              }            
+            }
+          }]
+        });
+      });
+  </script>
+</body>
+</html>

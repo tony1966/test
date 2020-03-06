@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div id="tab1" class="easyui-tabs" style="width:300px;height:200px;" data-options="tools:'#tool-1'">
+    <div title="標題 1" style="padding:10px;">內容 1</div>
+    <div title="標題 2" style="padding:10px;">內容 2</div>
+    <div title="標題 3" style="padding:10px;">內容 3</div>
+  </div>
+  <div id="tool-1">
+    <a href="#" id="enable" class="easyui-linkbutton" plain="true">Enable All</a>
+    <a href="#" id="disable" class="easyui-linkbutton" plain="true">Disable</a>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){      
+      $("#disable").bind("click",function(){
+        var tab=$("#tab1").tabs("getSelected");
+        var index=$("#tab1").tabs("getTabIndex",tab);
+        $("#tab1").tabs("disableTab",index);
+        });
+      $("#enable").bind("click",function(){
+        var tabs=$("#tab1").tabs("tabs");
+        for (var i=0; i<tabs.length; i++){
+          var index=$("#tab1").tabs("getTabIndex",tabs[i]);
+          $("#tab1").tabs("enableTab",index);
+          }        
+        });
+      });
+  </script>
+</body>
+</html>

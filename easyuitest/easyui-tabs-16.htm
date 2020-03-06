@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div id="tab1"></div>
+  <script language="javascript">
+    $(document).ready(function(){
+      $("#tab1").tabs({width:300,height:200});
+      $("#tab1").tabs("add",{title:"標題 1",content:"內容 1"});
+      $("#tab1").tabs("add",{title:"標題 2",content:"內容 2"});
+      $("#tab1").tabs("add",{title:"標題 3",content:"內容 3"});
+      var tabs=$("#tab1").tabs("tabs");
+      for (var i=0; i<tabs.length; i++){
+        tabs[i].css("padding","10px");
+        }
+      });
+  </script>
+</body>
+</html>

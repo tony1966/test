@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <ul id="tree1" class="easyui-tree" data-options="url:'government-3.json'"></ul>
+  <script language="javascript">
+    $(document).ready(function(){
+      var roots=$("#tree1").tree("getRoots");alert(roots.length);
+      var msg=[];
+      for (var i=0; i<roots.length; i++){
+        var children=$("#tree1").tree("getChildren",roots[i].target);
+        msg.push("root:" + roots[i].target.text);
+        for (var j=0; j<children.length; j++){
+          msg.push("-" + children[j].text);
+          }
+        }
+      alert(msg.join("\r\n"));
+      });
+  </script>
+</body>
+</html>

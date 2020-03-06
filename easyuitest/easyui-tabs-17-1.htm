@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div id="tab1" class="easyui-tabs" style="width:300px;height:200px;" data-options="tools:'#tool-1'">
+    <div title="標題 1" style="padding:10px;">內容 1</div>
+    <div title="標題 2" style="padding:10px;">內容 2</div>
+    <div title="標題 3" style="padding:10px;">內容 3</div>
+  </div>
+  <div id="tool-1">
+    <a href="#" id="update" class="easyui-linkbutton" plain="true">更新</a>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){      
+      $("#update").bind("click",function(){
+        var tab=$("#tab1").tabs("getSelected");
+        $("#tab1").tabs("update",{
+          tab:tab,
+          options:{
+            title:"新標籤",
+            href:"hellosomebody-post.php",
+            method:"post",
+            queryParams:{name:"Tony",surname:"Huang"},
+            loadingMessage:"載入中 ... "
+            }
+          });
+        });
+      });
+  </script>
+</body>
+</html>

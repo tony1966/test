@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>EasyUI 測試</title>
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/default/easyui.css">
+  <link rel="stylesheet" type="text/css" href="../jquery/easyui-themes/icon.css">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.easyui.min.js"></script>
+  <script type="text/javascript" src="../jquery/easyui-lang-zh_TW.js"></script>
+</head>
+<body>
+  <div id="tab1" class="easyui-tabs" style="width:300px;height:200px;" data-options="tools:'#tool-1'">
+    <div title="標題 1" style="padding:10px;">內容 1</div>
+    <div title="標題 2" style="padding:10px;">內容 2</div>
+    <div title="標題 3" style="padding:10px;">內容 3</div>
+  </div>
+  <div id="tool-1">
+    <a href="#" id="select" class="easyui-linkbutton" plain="true">Select</a>
+    <a href="#" id="unselect" class="easyui-linkbutton" plain="true">Unselect</a>
+  </div>
+  <script language="javascript">
+    $(document).ready(function(){    
+      $("#unselect").bind("click",function(){
+        var tab=$("#tab1").tabs("getSelected");
+        var index=$("#tab1").tabs("getTabIndex",tab);
+        $("#tab1").tabs("unselect",index);
+        });
+      $("#select").bind("click",function(){
+        var tab=$("#tab1").tabs("getSelected");
+        $("#tab1").tabs("select",1);
+        });
+      });
+  </script>
+</body>
+</html>

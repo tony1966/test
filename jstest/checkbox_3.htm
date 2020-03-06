@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Checkbox 測試</title>
+  <link href="../jquery/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery-ui.js"></script>
+</head>
+<body>
+  喜歡的水果 : <br>
+  <input type="checkbox" name="fruit" value="蘋果" checked>蘋果
+  <input type="checkbox" name="fruit" value="香蕉">香蕉
+  <input type="checkbox" name="fruit" value="櫻桃">櫻桃<br>
+  <input type="button" id="ok" value="確定">
+  <script language="Javascript">
+    $(document).ready(function(){ 
+      $("#ok").click(function(){
+        var selected=[];
+        $("[name=fruit]:checkbox:checked").each(function(){
+          selected.push($(this).val());
+          });
+        alert("您喜歡的水果 : " + selected.join());
+        });
+      });
+  </script>
+</body>
+</html>

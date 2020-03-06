@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Javascript 測試</title>
+</head>
+<body>
+待分行字串 : <br>
+<textarea id="str" rows="5" cols="60">251 N 0 1 DRTER K 0 115 N Y 342 RETURN 11 TAK R 2 SETCDN M N 0 0 1 $ $</textarea><br>
+<input type="button" value="製作指令" onclick="create_commands()"><br>
+<textarea id="result" rows="10" cols="60"></textarea>
+<script>
+  function $i(id) {return document.getElementById(id);}
+  function create_commands() {
+    var str=$i("str").value;
+    var arr=strwrap(str," ",10);
+    var cmd="UPD " + arr.join(" \+\r\n");
+    $i("result").value="分行後傳回陣列:\r\n" + arr.join() + "\r\n" +  
+	                   "製作之指令:\r\n" + cmd;
+    }
+  function strwrap(str,d,wrap) { //str=原字串, d=分隔字串, wrap=斷行字元數
+    if (str.length > wrap) { //超過分段長度
+        var s=0;    //頭指標初值
+        var e=wrap; //尾指標初值
+        var arr=new Array(); //暫存各斷行子字串
+        do { //以迴圈找尋分隔字串,利用頭尾指標斷行
+            e=str.indexOf(d, e); //從尾指標開始找到分隔字元,以其更新尾指標
+            if (e==-1) { //後面已找不到分隔字串了
+                var sub=str.substring(s, str.length); //斷行到字串尾即可
+                arr.push(sub); //最後一個斷行子字串存入陣列
+                break; //跳離迴圈
+                } //end of if
+            var sub=str.substring(s, e); //斷行子字串
+            arr.push(sub);  //將斷行子字串放入陣列
+            s=e + d.length; //移動起點至分隔字串尾之下一位置
+            e=s + wrap;     //移動預估終點至預定分割長度
+            }
+        while (s < str.length);  //頭指標尚未超過字串尾還要再進迴圈        
+        } //end of if
+    else {var arr=new Array(str);} //不須斷行,傳回單元素陣列
+    return arr;
+    }
+</script>
+</body>
+</html>

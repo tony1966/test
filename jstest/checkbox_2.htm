@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkbox 測試</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  喜歡的水果 : <br>
+  <input type="checkbox" name="fruit" value="蘋果" checked>蘋果
+  <input type="checkbox" name="fruit" value="香蕉">香蕉
+  <input type="checkbox" name="fruit" value="櫻桃">櫻桃<br>
+  <input type="button" name="ok" id="ok" value="確定">
+  <script language="Javascript">
+    var btn=document.getElementById("ok");
+    btn.onclick=function(){
+      var obj=document.getElementsByName("fruit");
+      var selected=[];
+      for (var i=0; i<obj.length; i++) {
+        if (obj[i].checked) {
+          selected.push(obj[i].value);
+          }
+        }
+      alert("您喜歡的水果 : " + selected.join());
+      };
+  </script>
+</body>
+</html>

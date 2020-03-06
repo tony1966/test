@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM $ functions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <p>已看過的戲劇:</p>
+  <input type="checkbox" name="drama" value="The K2">The K2<br>
+  <input type="checkbox" name="drama" value="很便宜,千里馬超市">很便宜,千里馬超市<br>
+  <input type="checkbox" name="drama" value="不經意發現的一天">不經意發現的一天<br>
+  <input type="checkbox" name="drama" value="熟男還不結婚">熟男還不結婚<br><br>
+  <button onclick="ok()">確定</button>
+  <script>
+    function $i(id) {return document.getElementById(id);}
+    function $n(name) {return document.getElementsByName(name);}
+    function $c(classname) {return document.getElementsByClassName(classname);}
+    function $t(tagname) {return document.getElementsByTagName(tagname);}
+    function ok() {
+      var objs=$n("drama");
+      if (objs.length == undefined) {var length=1;}
+      else {var length=objs.length;}
+      var items=[]; //儲存所選擇之選項值
+      for (var i=0; i<objs.length; i++) {
+        if (objs[i].checked) {items.push(objs[i].value);}
+        }
+      alert(items.join("-"));
+      }
+  </script>
+</body>
+</html>

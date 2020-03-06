@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM $ functions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <input type="text" id="input" name="input" class="input" value=""><br>
+  <button onclick="byid(this)">getElementById</button><br>
+  <button onclick="byname(this)">getElementsByName</button><br>
+  <button onclick="byclass(this)">getElementsByClassName</button><br>
+  <button onclick="bytag(this)">getElementsByTagName</button>
+  <script>
+    function $i(id) {return document.getElementById(id);}
+    function $n(name) {return document.getElementsByName(name);}
+    function $c(classname) {return document.getElementsByClassName(classname);}
+    function $t(tagname) {return document.getElementsByTagName(tagname);}
+    function byid(obj) {
+      $i("input").value=obj.innerHTML;
+      }
+    function byname(obj) {
+      $n("input")[0].value=obj.innerHTML;
+      }
+    function byclass(obj) {
+      $c("input")[0].value=obj.innerHTML;
+      }
+    function bytag(obj) {
+      $t("input")[0].value=obj.innerHTML;
+      }
+  </script>
+</body>
+</html>

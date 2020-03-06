@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>表單測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <form action="dosomething.php">
+    年齡 : <input type="number" name="age" min="0" max="120" value="30"><br>
+    月入 :<input type="range" name="income" min="0" max="300000" step="1000" onchange="show_value(this)"> 
+    <span id="display"></span>
+  </form>
+  <script>
+    function show_value(obj) {
+      var span=document.getElementById("display");
+      span.innerHTML=obj.value;
+      }
+  </script>
+</body>
+</html>
+
+ 
+
+
+
+
+
+
+
+
+
+

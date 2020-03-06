@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <script>
+    /* undefined 與 null 測試 */
+    var a;
+    document.write("a=" + a + "<br>");
+    document.write("Number(undefined)=" + Number(undefined) + "<br>");
+    document.write("Boolean(undefined)=" + Boolean(undefined) + "<br>");
+    document.write("a===undefined :" + (a===undefined) + "<br>");
+    function foo(i) {return i;}
+    document.write("foo()=" + foo() + "<br>");
+    var obj={};
+    document.write("obj.name=" + obj.name + "<br>");
+    function bar() {var b=1;}
+    document.write("bar()=" + bar() + "<br>");
+    var ret=/a/.exec('xyz');
+    document.write("/a/.exec('xyz')=" + ret + "<br>");
+    document.write("Number(null)=" + Number(ret) + "<br>");
+    document.write("Boolean(null)=" + Boolean(ret) + "<br>");
+    document.write("/a/.exec('xyz')===null:" + (ret===null) + "<br>");
+  </script>
+</body>
+</html>

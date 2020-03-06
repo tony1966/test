@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <p id="output"></p>   
+  <script>
+    /* 數值運算不精確修正測試 */ 
+    document.write("0.1+0.2=" + (0.1+0.2) + "<br>");
+    document.write("0.2+0.4=" + (0.2+0.4) + "<br>"); 
+    document.write("0.1+0.7=" + (0.1+0.7) + "<br>");  
+    document.write("add(0.1, 0.2)=" + add(0.1, 0.2) + "<br>");
+    document.write("add(0.2, 0.4)=" + add(0.2, 0.4) + "<br>"); 
+    document.write("add(0.1, 0.7)=" + add(0.1, 0.7) + "<br>"); 
+    function add(n1, n2) {
+      var r1, r2, m;
+      try {r1=n1.toString().split(".")[1].length;}
+      catch (e) {r1=0;}
+      try {r2=n2.toString().split(".")[1].length;}
+      catch (e) {r2=0;}
+      m=Math.pow(10, Math.max(r1, r2));
+      return Math.round(n1*m + n2*m)/m;
+      }
+    function sub(n1, n2) {
+      var r1, r2, m;
+      try {r1=n1.toString().split(".")[1].length;}
+      catch (e) {r1=0;}
+      try {r2=n2.toString().split(".")[1].length;}
+      catch (e) {r2=0;}
+      m=Math.pow(10, Math.max(r1, r2));
+      n=(r1 >= r2)? r1: r2
+      return (Math.round(n1*m - n2*m)/m).toFixed(n);
+      }
+    function mul(n1, n2) {
+      var r1, r2, m;
+      try {r1=n1.toString().split(".")[1].length;}
+      catch (e) {r1=0;}
+      try {r2=n2.toString().split(".")[1].length;}
+      catch (e) {r2=0;}
+      m=Math.pow(10, Math.max(r1, r2));
+      n=(r1 >= r2)? r1: r2
+      return (Math.round(n1*m - n2*m)/m).toFixed(n);
+      }
+    function div(n1, n2) {
+      var r1, r2, m;
+      try {r1=n1.toString().split(".")[1].length;}
+      catch (e) {r1=0;}
+      try {r2=n2.toString().split(".")[1].length;}
+      catch (e) {r2=0;}
+      m=Math.pow(10, Math.max(r1, r2));
+      n=(r1 >= r2)? r1: r2
+      return (Math.round(n1*m - n2*m)/m).toFixed(n);
+      }
+  </script>
+</body>
+</html>

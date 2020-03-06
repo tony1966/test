@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>表單測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <form>
+    time : <input type="time" onchange="show_value(this)"><br>
+    time : <input type="time" step="1" onchange="show_value(this)"><br>
+    date : <input type="date" onchange="show_value(this)"><br> 
+    week : <input type="week" onchange="show_value(this)"><br>
+    month : <input type="month" onchange="show_value(this)"><br> 
+    datetime : <input type="datetime" onchange="show_value(this)"><br>
+    datetime-local : <input type="datetime-local" onchange="show_value(this)"><br>
+    value : <span id="display"></span>
+  </form>
+  <script>
+    function show_value(obj) {
+      var span=document.getElementById("display");
+      span.innerHTML=obj.value;
+      }
+  </script>
+</body>
+</html>
+
+ 
+
+
+
+
+
+
+
+
+
+

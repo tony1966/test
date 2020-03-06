@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <script>
+    /* 字串逸出序列測試 */
+    document.write("\0" + "<br>");   //不可見
+    document.write("\b" + "<br>");   //不可見
+    document.write("\t" + "<br>");    //不可見
+    document.write("\n" + "<br>");   //不可見
+    document.write("\v" + "<br>");   //不可見
+    document.write("\f" + "<br>");    //不可見
+    document.write('\"' + "<br>");      //雙括號
+    document.write("\'" + "<br>");     //單括號
+    document.write("\\" + "<br>");     //倒斜線本身
+    document.write("\u3042" + "<br>");     //日文
+    document.write("\uC5FD" + "<br>");   //韓文
+    document.write("\u79AA" + "<br>");    //中文
+  </script>
+</body>
+</html>

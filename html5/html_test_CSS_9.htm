@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+   [class] {color:blue;}
+   [class="p2"] {font-weight:bold;}
+   div[class="p2"] {background:orange;}
+   [class*="ab"] {background:lightgray;}
+   [lang|="zh"] {font-style:italic;}
+   [href^="html"] {background:yellow;}
+   [src$=".jpg"] {border: inset 5px violet}
+  </style>
+</head>
+<body>
+  <p class="p1">Hello World 1</p>
+  <p class="p2">Hello World 2</p>
+  <div class="p2">Hello World 3</div>
+  <p class="blabla">Hello World 4</p>
+  <p lang="zh-Hant">Hello World 5</p>
+  <p><a href="html_test_hello_world.htm" target="_blank">開啟 Hello World</a><p>
+  <img src="img/20190510-cat.jpg"  width="400" height="225"  alt="Missing">
+</body>
+</html>

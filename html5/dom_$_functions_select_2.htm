@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM $ functions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <p>最好看的戲劇:</p>
+  <select name="drama" size="4" multiple>
+    <option value="The K2">The K2
+    <option value="很便宜,千里馬超市">很便宜,千里馬超市
+    <option value="不經意發現的一天">不經意發現的一天
+    <option value="熟男還不結婚">熟男還不結婚
+  </select>
+  <br><br>
+  <button onclick="ok()">確定</button>
+  <script>
+    function $i(id) {return document.getElementById(id);}
+    function $n(name) {return document.getElementsByName(name);}
+    function $c(classname) {return document.getElementsByClassName(classname);}
+    function $t(tagname) {return document.getElementsByTagName(tagname);}
+    function ok() {
+      var obj=$n("drama");
+      var opts=obj[0].options;
+      var len=opts.length;
+      var items=[];
+      for (var i=0; i<len; i++) {
+        opt=opts[i];
+        if (opt.selected) {items.push(opt.value);}
+        }
+      alert(items.join("-"));
+      }
+  </script>
+</body>
+</html>

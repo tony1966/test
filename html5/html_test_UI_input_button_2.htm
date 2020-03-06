@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>表單測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <form action="">
+    <input type="button" value="input 按鈕1">
+    <input type="button" value="input 按鈕2 (disabled)" disabled>
+    <input type="reset">
+    <input type="submit">    
+    <input type="reset" value="清除">    
+    <input type="submit" value="確定"><br>
+    <button type="button">button 按鈕1</button>
+    <button type="button" disabled>button 按鈕2 (disabled)</button>
+    <button type="button"><b>button 按鈕3<b></button>
+    <button type="button"><span style="color:blue">button 按鈕4<span></button>
+    <button type="reset">重置</button>
+    <button type="submit">提交</button><br>
+  </form>
+  <script>
+    function funa(obj){
+      alert("name=" + obj.btn3.name + " value=" + obj.btn3.value);
+      }
+    function funb(){
+      obj=document.getElementById("btn4");
+      alert("name=" + obj.name + " value=" + obj.value);
+      }
+    function getObj(id){
+      return document.getElementById(id);
+      }
+  </script>
+</body>
+</html>

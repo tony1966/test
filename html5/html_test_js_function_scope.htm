@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <p id="output"></p>   
+  <script>
+    /* 函數的 scope 測試 */
+    document.write("sum1(10,1)=" + sum1(10,1) + "<br>");
+    function sum1(a,b) {
+      return a+b;
+      }
+    document.write("sum1(10,1)=" + sum1(10,1) + "<br>");
+    //document.write("sum2(20,2)=" + sum2(20,2) + "<br>");
+    var sum2=function(a,b) {
+      return a+b;
+      }
+    document.write("sum2(20,2)=" + sum2(20,2) + "<br>");
+    //document.write("sum3(30,3)=" + sum3(30,3) + "<br>");
+    var sum3=new Function('a', 'b', 'return a+b');
+    document.write("sum3(30,3)=" + sum3(30,3) + "<br>");
+  </script>
+</body>
+</html>

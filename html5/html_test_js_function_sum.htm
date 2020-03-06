@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <p id="output"></p>   
+  <script>
+    /* 自訂函數測試 */
+    function sum(n) {
+      var total=0;
+      for (var i=0; i<=n; i++) {total += i;}
+      return total;
+      }
+    var n=100;
+    document.write("1+2+3+ ... +" + n + "=" + sum(n) + "<br>"); 
+  </script>
+</body>
+</html>

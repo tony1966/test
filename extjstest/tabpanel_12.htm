@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css" />
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+  <script type="text/javascript" src="extjs-4.2.1/locale/ext-lang-zh_TW.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      Ext.create("Ext.TabPanel",{
+        title:"工作日誌系統",
+        width:300,
+        height:200,
+        style:"margin:10px;",
+        frame:true,
+        maxTabWidth:50,
+        items:[
+          {title:"首頁",html:"首頁"},
+          {title:"差勤",html:"差勤"},
+          {title:"例行檢查",html:"例行檢查"},
+          {title:"管理",html:"管理"}
+          ],
+        renderTo:Ext.getBody()
+        }); 
+      });
+  </script>
+</body>
+</html>

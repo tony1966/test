@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="../extjs/resources/css/ext-all.css">
+  <script type="text/javascript" src="../extjs/ext-all.js"></script>
+  <script type="text/javascript" src="../extjs/locale/ext-lang-zh_TW.js"></script>
+  <style>
+    body {padding:20px;}
+  </style>
+</head>
+<body>
+  <div id="grid"></div>
+  <script type="text/javascript">
+    //Ext.require('Ext.grid.plugin.BufferedRenderer');
+    Ext.onReady(function() {
+      //定義表頭欄位
+      var columns=[Ext.create("Ext.grid.RowNumberer"),
+                   {header:"股票名稱",dataIndex:"stock_name"},
+                   {header:"股票代號",dataIndex:"stock_id"}
+                   ];
+      //轉成 Store 物件
+      var codebase="http://mybidrobot.allalla.com/extjstest/";
+      var store=Ext.create("Ext.data.Store", {
+          autoLoad:true,
+          buffered:true,
+          leadingBufferZone:10,
+          trailingBufferZone:10,
+          scrollToLoadBuffer:1000,
+          pageSize:200,
+          proxy:{
+            type:"ajax",
+            url:codebase + "get_stocks_list_all.php",
+            reader:{
+              type:"json",
+              totalProperty:"totalProperty",
+              root:"root",
+              idProperty:"stock_id"
+              }
+            },
+          fields:[
+            {name:"stock_name"},
+            {name:"stock_id"}
+            ]
+          });
+      //建立 GridPanel 
+      var grid=Ext.create("Ext.grid.Panel",{
+        columns:columns,
+        store:store,
+        renderTo:"grid",
+        width:500,
+        height:300,
+        forceFit:true,
+        loadMask:true
+        });
+      //store.load();
+      }); //end of onReady
+  </script>
+</body>
+</html>

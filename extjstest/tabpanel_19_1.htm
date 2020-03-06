@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <title>ExtJS4</title>
+  <link rel="stylesheet" href="extjs-4.2.1/resources/css/ext-all.css">
+  <script type="text/javascript" src="extjs-4.2.1/ext-all.js"></script>
+  <script type="text/javascript" src="extjs-4.2.1/locale/ext-lang-zh_TW.js"></script>
+</head>
+<body>
+  <script type="text/javascript">
+    Ext.onReady(function() {
+      var tp=Ext.create("Ext.TabPanel",{
+        title:"工作日誌系統",
+        width:300,
+        height:200,
+        style:"margin:10px;",
+        frame:true,
+        defaults:{bodyPadding:10},
+        buttons:[{text:"更新",handler:changeContent}],
+        items:[
+          {title:"首頁",html:"首頁"},
+          {title:"差勤",html:"差勤"},
+          {title:"管理",html:"管理"}
+          ],
+        renderTo:Ext.getBody()
+        });
+      function changeContent() {
+        var activetab=tp.getActiveTab();
+        var html="<a href='http://tw.yahoo.com' target='_blank'>Yahoo</a>" +
+                 "<script>alert('更新完成!')<\/script>";
+        activetab.update(html,true,callback);
+        }
+      function callback() {
+        Ext.Msg.alert("訊息","更新完成!");
+        }
+      });
+  </script>
+</body>
+</html>

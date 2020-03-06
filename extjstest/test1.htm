@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="../extjs/resources/css/ext-all.css" rel="stylesheet" type="text/css" />
+    <script src="../extjs/ext-all.js" type="text/javascript"></script>
+    <script>
+      var columns=[Ext.create("Ext.grid.RowNumberer"),
+                   {header:"股票名稱",dataIndex:"stock_name"},
+                   {header:"股票代號",dataIndex:"stock_id"}
+                   ];
+      //轉成 Store 物件
+      var codebase="http://mybidrobot.allalla.com/extjstest/";
+      var store=Ext.create("Ext.data.Store", {
+          autoLoad:true,
+          proxy:{
+            type:"ajax",
+            url:codebase + "get_stocks_list_all.php",
+            reader:{
+              type:"json",
+              totalProperty:"totalProperty",
+              root:"root",
+              idProperty:"stock_id"
+              }
+            },
+          fields:[
+            {name:"stock_name"},
+            {name:"stock_id"}
+            ]
+          });
+
+
+        Ext.onReady(function () {
+                Ext.create("Ext.grid.Panel", {
+                    store: store,
+                    height : 300,
+                    title : "Buffered Grid",
+                    plugins : [
+                        {
+                            ptype :"bufferedrenderer",
+                            trailingBufferZone : 10,
+                            leadingBufferZone : 30,
+                            scrollToLoadBuffer : 10000
+                        }
+                    ],
+                    columns:columns,
+                    renderTo: Ext.getBody()
+                });
+            }
+        );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

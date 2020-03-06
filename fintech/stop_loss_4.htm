@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet"  href="https://code.jquery.com/ui/1.12.0/themes/hot-sneaks/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <form id="stop_loss_form">
+      <label for="buy">買進價</label>
+      <input type="text" id="buy" name="buy"><br>
+      <label for="close">收盤價</label>
+      <input type="text" id="close" name="close">
+      <button id="calculate5" style="width:100px">5% 停損</button><br>
+      <label for="stop_loss">停損價</label>
+      <input type="text" id="stop_loss" name="stop_loss">
+      <button id="calculate10" style="width:100px">10% 停損</button>
+    </form>
+    <script>
+      $(document).ready(function(){
+        $('#calculate5').click({ratio: 0.05}, stop_loss);
+        $('#calculate10').on('click', {ratio: 0.1}, stop_loss);
+        function stop_loss(e) {
+          e.preventDefault();
+          $.ajax({
+            type: "POST", 
+            url: "calculate_stop_loss_dynamic.php", 
+            dataType: "json", 
+            data: {
+              buy: $('#buy').val(),
+              close: $('#close').val(),
+              ratio: e.data.ratio
+              },
+            success: function(data) {
+              if (data.sell){
+                $("#stop_loss").val(data.sell); 
+                }
+              },
+            error: function(xhr) {
+              alert('訊息',xhr.status,"error");
+              }
+            });
+          }
+        });
+    </script>
+  </body>
+</html>

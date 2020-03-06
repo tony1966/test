@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet"  href="https://code.jquery.com/ui/1.12.0/themes/hot-sneaks/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <label for="buy">買進價</label>
+    <input type="text" id="buy" name="buy"><br>
+    <label for="close">收盤價</label>
+    <input type="text" id="close" name="close">
+    <button id="calculate5" style="width:100px">5% 停損</button><br>
+    <label for="stop_loss">停損價</label>
+    <input type="text" id="stop_loss" name="stop_loss">
+    <button id="calculate10" style="width:100px">10% 停損</button>
+    <script>
+      $(document).ready(function(){
+        $("#calculate5" ).click(function(e) {
+          calculate_stop_loss(0.05); //傳入停損比值=買進價的 5%
+          });
+        $("#calculate10" ).click(function(e) {
+          calculate_stop_loss(0.1);  //傳入停損比值=買進價的 10%
+          });
+        function calculate_stop_loss(ratio) {
+          var buy=parseFloat($("#buy").val());      //買進價
+          var close=parseFloat($("#close").val());  //收盤價
+          if (close < buy) {           //虧損狀態
+            var sell=buy*(1-ratio);    //認賠賣出價
+            }  
+          else {                       
+            var sell=close*(1-ratio);  //向上移動停損線
+            }  
+          $("#stop_loss").val(sell);          
+          }        
+        });
+    </script>
+  </body>
+</html>

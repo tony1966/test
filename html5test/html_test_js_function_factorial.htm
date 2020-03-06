@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <script>
+    /* 自訂函數測試 */
+    function factorial(n) {
+      if (n<=0) {return 1;}
+      return n*factorial(n-1);
+      }
+    var n=5;
+    for (var i=1; i<=20; i++) {
+      document.write(i + "!=" + factorial(i) + "<br>"); 
+      }    
+  </script>
+</body>
+</html>

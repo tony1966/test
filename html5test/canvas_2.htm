@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<head>
+  <title>HTML5 Test</title>
+  <script>
+    function $i(id) {return document.getElementById(id);}
+    function $n(id) {return document.getElementsByName(name);}
+    function $c(id) {return document.getElementsByClass(className);}
+    function $t(id) {return document.getElementsByClass(tagName);}
+  </script>
+</head>
+<body>
+  <canvas id=canvas1 style="width:400px; height:400px; border:1px solid blue;">
+  您的瀏覽器不支援畫布功能
+  </canvas>
+  <script>
+    var canvas=$i("canvas1");
+    var ctx=canvas.getContext("2d");
+    ctx.fillStyle="red";
+    ctx.fillRect(10,10,50,50);
+  </script>
+</body>

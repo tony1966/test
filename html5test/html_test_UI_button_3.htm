@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>表單測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <form action="">
+    <input type="button" value="input 按鈕1" onclick="alert('您按了按鈕1')">
+    <input type="button" value="input 按鈕2 (disabled)" disabled>
+    <input type="button" name="btn3" value="input 按鈕3" onclick="funa(this.form)">
+    <input type="button" id="btn4" value="input 按鈕4" onclick="funb()">
+  </form>
+  <script>
+    function funa(obj){
+      alert("name=" + obj.btn3.name + " value=" + obj.btn3.value);
+      }
+    function funb(){
+      obj=document.getElementById("btn4");
+      alert("name=" + obj.name + " value=" + obj.value);
+      }
+    function getObj(id){
+      return document.getElementById(id);
+      }
+  </script>
+</body>
+</html>

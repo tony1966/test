@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <style>
+    a:link {color:blue;}
+    a:visited {color:violet;}
+    a:hover {background-color:yellow;}
+    div.hello:hover {background:violet;}
+    :checked {height:20px; width:20px;}
+    :disabled {background-color:lightgray;}
+    :focus {background-color:yellow;}
+    :required {border:dotted 2px blue;}
+  </style>
+</head>
+<body>
+  <p><a href="http://www.google.com">Google</a><p>
+  <p><a href="http://tw.yahoo.com">Yahoo</a><p>
+  <div class="hello">Hello World</div><br>
+  <form>
+    <input type="text" required>
+    <input type="text" disabled><br><br>
+    <input name="language" type="checkbox" value="Python"> Python
+    <input name="language" type="checkbox" value="R"> R
+    <input name="language" type="checkbox" value="C#"> C#
+  </form>
+</body>
+</html>

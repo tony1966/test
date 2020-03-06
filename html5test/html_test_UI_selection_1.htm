@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>表單測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <form action="">
+    年收入 : 
+    <input type="radio" name="income">50 萬以下
+    <input type="radio" name="income" checked>50~100 萬
+    <input type="radio" name="income">100以上<br>
+    投資經驗 : 
+    <input type="checkbox" name="experience1" checked>基金
+    <input type="checkbox" name="experience1" checked>股票
+    <input type="checkbox" name="experience1">選擇權
+    <input type="checkbox" name="experience1">期貨<br>
+    投資屬性 : 
+    <select name="risk">
+      <option value="positive" selected>積極型</option>
+      <option value="robust">穩健型</option>
+      <option value="conservative">保守型</option>
+    </select><br>
+    投資商品 : 
+    <select name="commodity" size="3" multiple>
+      <option value="定存" selected>定存</option>
+      <option value="債券">債券</option>
+      <option value="投資型保單">投資型保單</option>
+      <option value="認購權證">認購權證</option>
+      <option value="可轉換公司債">可轉換公司債</option>
+    </select><br>
+    虧損承受力 : 
+    <input type="text" name="max_loss" list="loss_percentage">
+    <datalist id="loss_percentage">
+      <option value="0%"></option>
+      <option value="-5%"></option>
+      <option value="-10%"></option>
+      <option value="-20%"></option>
+    </datalist>
+  </form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<head>
+  <title>HTML5 Test</title>
+  <script>
+    function $i(id) {return document.getElementById(id);}
+    function $n(id) {return document.getElementsByName(name);}
+    function $c(id) {return document.getElementsByClass(className);}
+    function $t(id) {return document.getElementsByClass(tagName);}
+  </script>
+</head>
+<body>
+  <canvas id=canvas1 onclick=reset()>您的瀏覽器不支援畫布功能</canvas><br>
+  <input type=button value=顯示畫布寬度 onclick=show_width()>
+  <input type=button value=顯示畫布高度 onclick=show_height()>
+  <input type=button value=設定畫布邊框 onclick=set_border()>
+  <input type=button value=設定畫布背景 onclick=set_background()>
+  <input type=button value="更改尺寸為 400x400" onclick=change_size()>
+  <script>
+    var canvas=$i("canvas1");
+    function show_width() {alert("畫布寬度=" + canvas.width + "px");}
+    function show_height() {alert("畫布高度=" + canvas.height + "px");}
+    function set_border() {canvas.style.border="1px solid blue";}
+    function set_background() {canvas.style.backgroundColor="yellow";}
+    function change_size() {canvas.width=400;canvas.height=400;}
+    function reset() {
+      canvas.width=300;
+      canvas.height=150;
+      canvas.style.border="";
+      canvas.style.backgroundColor="";
+      }
+  </script>
+</body>

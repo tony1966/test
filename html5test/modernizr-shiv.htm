@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<meta charset=utf-8>
+<head>
+  <title>HTML5 Test</title>
+  <style>
+    table {border:2px solid black;border-spacing:0px;}
+    td {white-space:nowrap;padding:5px;}
+    .support {text-align:center;}
+  </style>
+  <script src="modernizr.js"></script>
+</head>
+<body>
+  <table rules="all">
+    <caption>您的瀏覽器支援那些 HTML5 功能?</caption>
+    <tr>
+      <th>HTML5 功能</th>
+      <th>Modernizr 屬性</th>
+      <th style="width:50px;">支援</td>
+    </tr>
+    <tr>
+      <td>Canvas 繪圖</td>
+      <td>Modernizr.canvas</td>
+      <td class="support">
+        <script>Modernizr.canvas? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Canvas 文字</td>
+      <td>Modernizr.canvastext</td>
+      <td class="support">
+        <script>Modernizr.canvastext? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Video 視訊</td>
+      <td>Modernizr.video</td>
+      <td class="support">
+        <script>Modernizr.video? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Video ogg 解碼器</td>
+      <td>Modernizr.video.ogg</td>
+      <td class="support">
+        <script>Modernizr.video.ogg? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Video h.264 解碼器</td>
+      <td>Modernizr.video.h264</td>
+      <td class="support">
+        <script>Modernizr.video.h264? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Video WebM 解碼器</td>
+      <td>Modernizr.video.webm</td>
+      <td class="support">
+        <script>Modernizr.video.webm? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Audio 音訊</td>
+      <td>Modernizr.audio</td>
+      <td class="support">
+        <script>Modernizr.audio? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Audio mp3 音訊</td>
+      <td>Modernizr.audio.mp3</td>
+      <td class="support">
+        <script>Modernizr.audio.mp3? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Audio wav 音訊</td>
+      <td>Modernizr.audio.wav</td>
+      <td class="support">
+        <script>Modernizr.audio.wav? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Audio m4a 音訊</td>
+      <td>Modernizr.audio.m4a</td>
+      <td class="support">
+        <script>Modernizr.audio.m4a? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Drag and Drop 拖放</td>
+      <td>Modernizr.draganddrop</td>
+      <td class="support">
+        <script>Modernizr.draganddrop? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Local Storage 本地儲存</td>
+      <td>Modernizr.localstorage</td>
+      <td class="support">
+        <script>Modernizr.localstorage? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Session Storage 連線儲存</td>
+      <td>Modernizr.sessionstorage</td>
+      <td class="support">
+        <script>Modernizr.sessionstorage? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Worker 背景執行</td>
+      <td>Modernizr.webworkers</td>
+      <td class="support">
+        <script>Modernizr.webworkers? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Application Cache 離線執行</td>
+      <td>Modernizr.applicationcache</td>
+      <td class="support">
+        <script>Modernizr.applicationcache? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Geolocation 地理定位</td>
+      <td>Modernizr.geolocation</td>
+      <td class="support">
+        <script>Modernizr.geolocation? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>IndexedDB 本地資料庫</td>
+      <td>Modernizr.indexeddb</td>
+      <td class="support">
+        <script>Modernizr.indexeddb? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Web SQL 本地資料庫</td>
+      <td>Modernizr.websqldatabase</td>
+      <td class="support">
+        <script>Modernizr.websqldatabase? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Web Sockets 網路通訊</td>
+      <td>Modernizr.websockets</td>
+      <td class="support">
+        <script>Modernizr.websockets? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Post Message 跨文件通訊</td>
+      <td>Modernizr.postmessage</td>
+      <td class="support">
+        <script>Modernizr.postmessage? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>History 物件管理</td>
+      <td>Modernizr.history</td>
+      <td class="support">
+        <script>Modernizr.history? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>SVG 可縮放向量繪圖</td>
+      <td>Modernizr.svg</td>
+      <td class="support">
+        <script>Modernizr.svg? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Inline SVG</td>
+      <td>Modernizr.inlinesvg</td>
+      <td class="support">
+        <script>Modernizr.inlinesvg? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>SVG Clip Paths 剪裁路徑</td>
+      <td>Modernizr.svgclippaths</td>
+      <td class="support">
+        <script>Modernizr.svgclippaths? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>SMIL 同步多媒體集成語言</td>
+      <td>Modernizr.smil</td>
+      <td class="support">
+        <script>Modernizr.smil? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>WebGL 3D 繪圖</td>
+      <td>Modernizr.webgl</td>
+      <td class="support">
+        <script>Modernizr.webgl? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Hash Chage 事件</td>
+      <td>Modernizr.hashchange</td>
+      <td class="support">
+        <script>Modernizr.hashchange? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Touch 事件</td>
+      <td>Modernizr.touch</td>
+      <td class="support">
+        <script>Modernizr.touch? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: search</td>
+      <td>Modernizr.inputtypes.search</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.search? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: tel</td>
+      <td>Modernizr.inputtypes.tel</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.tel? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: url</td>
+      <td>Modernizr.inputtypes.url</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.url? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: datetime</td>
+      <td>Modernizr.inputtypes.datetime</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.datetime? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: date</td>
+      <td>Modernizr.inputtypes.date</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.date? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: month</td>
+      <td>Modernizr.inputtypes.month</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.month? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: week</td>
+      <td>Modernizr.inputtypes.week</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.week? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: time</td>
+      <td>Modernizr.inputtypes.time</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.time? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: datetime-local</td>
+      <td>Modernizr.inputtypes.datetimelocal</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.datetimelocal? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: number</td>
+      <td>Modernizr.inputtypes.number</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.number? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: range</td>
+      <td>Modernizr.inputtypes.range</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.range? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input Types 輸入表單: color</td>
+      <td>Modernizr.inputtypes.color</td>
+      <td class="support">
+        <script>Modernizr.inputtypes.color? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: autocomplete</td>
+      <td>Modernizr.input.autocomplete</td>
+      <td class="support">
+        <script>Modernizr.input.autocomplete? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: autofocus</td>
+      <td>Modernizr.input.autofocus</td>
+      <td class="support">
+        <script>Modernizr.input.autofocus? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: list</td>
+      <td>Modernizr.input.list</td>
+      <td class="support">
+        <script>Modernizr.input.list? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: placeholder</td>
+      <td>Modernizr.input.placeholder</td>
+      <td class="support">
+        <script>Modernizr.input.placeholder? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: max</td>
+      <td>Modernizr.input.max</td>
+      <td class="support">
+        <script>Modernizr.input.max? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: min</td>
+      <td>Modernizr.input.min</td>
+      <td class="support">
+        <script>Modernizr.input.min? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: multiple</td>
+      <td>Modernizr.input.multiple</td>
+      <td class="support">
+        <script>Modernizr.input.multiple? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: pattern</td>
+      <td>Modernizr.input.pattern</td>
+      <td class="support">
+        <script>Modernizr.input.pattern? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: required</td>
+      <td>Modernizr.input.required</td>
+      <td class="support">
+        <script>Modernizr.input.required? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>Input 屬性: step</td>
+      <td>Modernizr.input.step</td>
+      <td class="support">
+        <script>Modernizr.input.step? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: @font-face</td>
+      <td>Modernizr.fontface</td>
+      <td class="support">
+        <script>Modernizr.fontface? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: background-size</td>
+      <td>Modernizr.backgroundsize</td>
+      <td class="support">
+        <script>Modernizr.backgroundsize? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: border-image</td>
+      <td>Modernizr.borderimage</td>
+      <td class="support">
+        <script>Modernizr.borderimage? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: border-radius</td>
+      <td>Modernizr.borderradius</td>
+      <td class="support">
+        <script>Modernizr.borderradius? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: box-shadow</td>
+      <td>Modernizr.boxshadow</td>
+      <td class="support">
+        <script>Modernizr.boxshadow? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: Flexible Box Model</td>
+      <td>Modernizr.flexbox</td>
+      <td class="support">
+        <script>Modernizr.flexbox? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: hsla</td>
+      <td>Modernizr.hsla</td>
+      <td class="support">
+        <script>Modernizr.hsla? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: Multiple backgrounds</td>
+      <td>Modernizr.multiplebgs</td>
+      <td class="support">
+        <script>Modernizr.multiplebgs? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: opacity</td>
+      <td>Modernizr.opacity</td>
+      <td class="support">
+        <script>Modernizr.opacity? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: rgba</td>
+      <td>Modernizr.rgba</td>
+      <td class="support">
+        <script>Modernizr.rgba? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: text-shadow</td>
+      <td>Modernizr.textshadow</td>
+      <td class="support">
+        <script>Modernizr.textshadow? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS Animations</td>
+      <td>Modernizr.cssanimations</td>
+      <td class="support">
+        <script>Modernizr.cssanimations? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS Columns</td>
+      <td>Modernizr.csscolumns</td>
+      <td class="support">
+        <script>Modernizr.csscolumns? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: Generated Content</td>
+      <td>Modernizr.generatedcontent</td>
+      <td class="support">
+        <script>Modernizr.generatedcontent? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS Gradients</td>
+      <td>Modernizr.cssgradients</td>
+      <td class="support">
+        <script>Modernizr.cssgradients? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS Reflections</td>
+      <td>Modernizr.cssreflections</td>
+      <td class="support">
+        <script>Modernizr.cssreflections? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS 2D Transforms</td>
+      <td>Modernizr.csstransforms</td>
+      <td class="support">
+        <script>Modernizr.csstransforms? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS 3D Transforms</td>
+      <td>Modernizr.csstransforms3d</td>
+      <td class="support">
+        <script>Modernizr.csstransforms3d? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+    <tr>
+      <td>CSS 屬性: CSS Transitions</td>
+      <td>Modernizr.csstransitions</td>
+      <td class="support">
+        <script>Modernizr.csstransitions? document.write("O"): document.write("X");</script>
+      </td>
+    </tr>
+  </table>
+</body>

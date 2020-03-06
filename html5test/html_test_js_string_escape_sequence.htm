@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Javascript 測試</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body>
+  <script>
+    /* 字串逸出序列測試 */
+    document.write("\0" + "<br>"); 
+    document.write("\b" + "<br>");
+    document.write("\t" + "<br>"); 
+    document.write("\n" + "<br>"); 
+    document.write("\v" + "<br>"); 
+    document.write("\f" + "<br>");
+    document.write('\"' + "<br>");
+    document.write("\'" + "<br>");
+    document.write("\\" + "<br>");
+    document.write("\u3042" + "<br>");
+    document.write("\uC5FD" + "<br>");
+    document.write("\u79AA" + "<br>");
+  </script>
+</body>
+</html>

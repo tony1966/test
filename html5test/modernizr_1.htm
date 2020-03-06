@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<head>
+  <title>HTML5 Test</title>
+  <style>
+    table {border:2px solid black;border-spacing:0px;}
+    td {white-space:nowrap;padding:5px;}
+	.support {text-align:center;}
+  </style>
+  <script src="modernizr.js"></script>
+</head>
+<body>
+  <table rules="all">
+    <caption>您的瀏覽器支援那些 HTML5 功能?</caption>
+    <tr>
+	  <th>HTML5 功能</th>
+	  <th>Modernizr 屬性</th>
+	  <th style="width:50px;">支援</td>
+	</tr>
+    <tr>
+	  <td>Canvas 繪圖</td>
+	  <td>Modernizr.canvas</td>
+	  <td class="support">
+	    <script>Modernizr.canvas? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Canvas 文字</td>
+	  <td>Modernizr.canvastext</td>
+	  <td class="support">
+	    <script>Modernizr.canvastext? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Video 視訊</td>
+	  <td>Modernizr.video</td>
+	  <td class="support">
+	    <script>Modernizr.video? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Video ogg 解碼器</td>
+	  <td>Modernizr.video.ogg</td>
+	  <td class="support">
+	    <script>Modernizr.video.ogg? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Video h.264 解碼器</td>
+	  <td>Modernizr.video.h264</td>
+	  <td class="support">
+	    <script>Modernizr.video.h264? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Video WebM 解碼器</td>
+	  <td>Modernizr.video.webm</td>
+	  <td class="support">
+	    <script>Modernizr.video.webm? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Audio 音訊</td>
+	  <td>Modernizr.audio</td>
+	  <td class="support">
+	    <script>Modernizr.audio? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Audio mp3 音訊</td>
+	  <td>Modernizr.audio.mp3</td>
+	  <td class="support">
+	    <script>Modernizr.audio.mp3? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Audio wav 音訊</td>
+	  <td>Modernizr.audio.wav</td>
+	  <td class="support">
+	    <script>Modernizr.audio.wav? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Audio m4a 音訊</td>
+	  <td>Modernizr.audio.m4a</td>
+	  <td class="support">
+	    <script>Modernizr.audio.m4a? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Drag and Drop 拖放</td>
+	  <td>Modernizr.draganddrop</td>
+	  <td class="support">
+	    <script>Modernizr.draganddrop? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Local Storage 本地儲存</td>
+	  <td>Modernizr.localstorage</td>
+	  <td class="support">
+	    <script>Modernizr.localstorage? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Session Storage 連線儲存</td>
+	  <td>Modernizr.sessionstorage</td>
+	  <td class="support">
+	    <script>Modernizr.sessionstorage? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Web Worker 背景執行</td>
+	  <td>Modernizr.webworkers</td>
+	  <td class="support">
+	    <script>Modernizr.webworkers? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Application Cache 離線執行</td>
+	  <td>Modernizr.applicationcache</td>
+	  <td class="support">
+	    <script>Modernizr.applicationcache? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Geolocation 地理定位</td>
+	  <td>Modernizr.geolocation</td>
+	  <td class="support">
+	    <script>Modernizr.geolocation? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>IndexedDB 本地資料庫</td>
+	  <td>Modernizr.indexeddb</td>
+	  <td class="support">
+	    <script>Modernizr.indexeddb? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Web SQL 本地資料庫</td>
+	  <td>Modernizr.websqldatabase</td>
+	  <td class="support">
+	    <script>Modernizr.websqldatabase? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Web Sockets 網路通訊</td>
+	  <td>Modernizr.websockets</td>
+	  <td class="support">
+	    <script>Modernizr.websockets? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Post Message 跨文件通訊</td>
+	  <td>Modernizr.postmessage</td>
+	  <td class="support">
+	    <script>Modernizr.postmessage? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>History 物件管理</td>
+	  <td>Modernizr.history</td>
+	  <td class="support">
+	    <script>Modernizr.history? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>SVG 可縮放向量繪圖</td>
+	  <td>Modernizr.svg</td>
+	  <td class="support">
+	    <script>Modernizr.svg? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Inline SVG</td>
+	  <td>Modernizr.inlinesvg</td>
+	  <td class="support">
+	    <script>Modernizr.inlinesvg? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>SVG Clip Paths 剪裁路徑</td>
+	  <td>Modernizr.svgclippaths</td>
+	  <td class="support">
+	    <script>Modernizr.svgclippaths? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>SMIL 同步多媒體集成語言</td>
+	  <td>Modernizr.smil</td>
+	  <td class="support">
+	    <script>Modernizr.smil? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>WebGL 3D 繪圖</td>
+	  <td>Modernizr.webgl</td>
+	  <td class="support">
+	    <script>Modernizr.webgl? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Hash Chage 事件</td>
+	  <td>Modernizr.hashchange</td>
+	  <td class="support">
+	    <script>Modernizr.hashchange? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+    <tr>
+	  <td>Touch 事件</td>
+	  <td>Modernizr.touch</td>
+	  <td class="support">
+	    <script>Modernizr.touch? document.write("O"): document.write("X");</script>
+	  </td>
+	</tr>
+  </table>
+</body>

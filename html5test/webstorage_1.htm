@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<head>
+  <title>HTML5 Test</title>
+  <script>
+    function $i(id) {return document.getElementById(id);}
+    function $n(id) {return document.getElementsByName(name);}
+    function $c(id) {return document.getElementsByClass(className);}
+    function $t(id) {return document.getElementsByClass(tagName);}
+  </script>
+</head>
+<body>
+  <p>Cookie 名稱 : <input type="text" id="name"></p>
+  <p>Cookie 之值 : <input type="text" id="value"></p>
+  <p>Cookie 期限 : <input type="text" id="expires"></p>
+  <p>
+    <input type="button" id="setCookie" value="設定 Cookie">
+    <input type="button" id="deleteCookie" value="刪除 Cookie">
+    <input type="button" id="showCookies" value="顯示全部 Cookie">
+  </p>
+  <div id="cookies"></div>
+  <script>
+    $i("setCookie").onclick=setCookie;
+    $i("showCookies").onclick=showCookies;
+    function setCookie(name,value,expire) {
+      var expire=7 || expire; //預設 7 天
+      var d=new Date();
+      d.setTime(d.getTime() + expire*(24*60*60*1000));
+      document.cookie=name + "=" + value + "; expires=" +
+                      d.toGMTString();
+      }
+    function getCookie(name) {
+      var arr1=document.cookie.split("; "); //拆分 Cookie
+      for (var i=0; i<arr1.length; i++) {
+           var arr2=arr1[i].split("="); //拆分 key,value
+           if (name==arr2[0]) {return unescape(arr2[1]);} //轉成 ASCII 傳回
+           else {return null;} //沒找到傳回 null
+           } //end of for
+      }
+    function deleteCookies(name) {
+      document.cookie=name + "=; expires=";
+      }
+    function showCookies() {
+      $i("cookies").innerHTML=document.cookie;
+      }
+  </script>
+</body>

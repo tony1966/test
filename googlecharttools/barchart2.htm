@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <!--載入 Google AJAX API (JSAPI) 函式庫-->
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <!--載入 Google Visualization API 視覺化函式庫與繪圖套件-->
+    <script type="text/javascript">
+      //載入 Google Visualization API 視覺化函式庫與繪圖核心套件
+      google.load('visualization', '1.0', {'packages':['corechart']});
+      //設定 Google Visualization API 載入後要執行的回呼函數
+      google.setOnLoadCallback(drawChart);  //傳入繪圖函數名稱
+      //撰寫回呼函數來繪製圖形    
+      function drawChart() { 
+        //產生 DataTable 物件來儲存統計資料
+        var data = new google.visualization.arrayToDataTable([
+          ['OS', '2012', '2013'],
+          ['Windows', 21548, 20345],
+          ['Linux', 19864, 20113],
+          ['Mac OS', 18459, 23013],
+          ['Android', 5762, 13204],
+          ['iOS', 5635, 7834]
+        ]);
+        //設定圖表選項 (標題與大小)
+        var options = {'title':'The Comparison of Shares of Operation Systems',
+                       'width':400,
+                       'height':300,
+                       vAxis: {title: 'OS',  titleTextStyle: {color: 'red'}}};
+        //呼叫視覺化物件的繪圖方法來建立繪圖物件 (傳入網頁 div 承載元素之 ID)
+        var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+        //呼叫繪圖物件的 draw 方法來繪圖
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <!--繪圖的 div 承載元素-->
+    <div id="chart_div" style="border: 1px solid blue; width: 400px;"></div>
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <link href='../jquery/jquery-ui-timepicker-addon.css' rel='stylesheet'>
+  <script type="text/javascript" src="../jquery/jquery-ui-timepicker-addon.js"></script>
+  <script type='text/javascript' src='../jquery/jquery-ui-sliderAccess.js'></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  <input id="datetimepicker1" type="text" />
+  <input id="datetimepicker2" type="text" />
+  <input id="datetimepicker3" type="text" />
+  <script language="JavaScript">
+    $(document).ready(function(){ 
+      var opt1={dateFormat: 'yy-mm-dd',
+	        showSecond: true,
+                timeFormat: 'HH:mm:ss',
+		stepHour:2, 
+		stepMinute:5, 
+		stepSecond:10
+                };
+      var opt2={dateFormat: 'yy-mm-dd',
+	        showSecond: true,
+                timeFormat: 'HH:mm:ss',
+		controlType:"select"
+                };
+      var opt3={dateFormat: 'yy-mm-dd',
+	        showSecond: true,
+                timeFormat: 'HH:mm:ss',
+		addSliderAccess:true,
+		sliderAccessArgs:{touchonly:false}
+                };
+      $('#datetimepicker1').datetimepicker(opt1);
+      $('#datetimepicker2').datetimepicker(opt2);
+      $('#datetimepicker3').datetimepicker(opt3);
+      });
+  </script>
+</body>
+</html>

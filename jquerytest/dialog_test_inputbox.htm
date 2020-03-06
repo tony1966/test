@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  <button id="button1">華氏轉換成攝氏溫度</button>
+  <div id="inputbox1">
+    <input type="text" id="text1">
+  </div>
+  <div id="msgbox1" title="訊息">
+  </div>
+  <script language="JavaScript">
+    $(document).ready(function(){
+      $("#button1").button();
+      $('#button1').click(function(){
+        $('#inputbox1').dialog('open');
+	    });
+      var opt={autoOpen: false,
+               buttons: {"確定": function() {$(this).dialog("close");}}
+               };
+      $("#msgbox1").dialog(opt);
+      var do_ok=function() {
+                  var f=parseFloat($("#text1").val()); //取得資料
+                  var c=(f-32)*5/9; //換算為攝氏
+                  $("#msgbox1").html("華氏 " + f + " 度=攝氏 " + c + " 度");
+                  $("#msgbox1").dialog("open");
+                  $(this).dialog("close");
+                  }
+      var opt={autoOpen: false,
+               title: "請輸入華氏溫度",
+               buttons: {
+                         "確定": do_ok,
+                         "取消": function() {$(this).dialog("close");}
+                        }};
+      $("#inputbox1").dialog(opt);
+      });
+  </script>
+</body>
+</html>

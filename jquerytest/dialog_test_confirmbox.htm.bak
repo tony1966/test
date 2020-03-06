@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  <button id="button1">確認是否要顯示原始碼</button>
+  <div id="confirmbox1" title="確認訊息">
+    <p id="confirm1">要顯示此網頁的原始碼嗎?</p>
+  </div>
+  <script language="JavaScript">
+    $(document).ready(function(){
+      $("#button1").button();
+      $('#button1').click(function(){
+        $('#confirmbox1').dialog('open');
+        });
+      var do_yes=function() { //外部函式須先行定義 
+                   var url="http://mybidrobot.allalla.com/source.php?" +
+                           "file=jquerytest/dialog_test_confirmbox.htm";
+                   window.open(url,"newwin");
+                   $(this).dialog("close");
+                   }
+      var opt={autoOpen: false,
+               buttons: {
+                "是": do_yes,
+                "否": function() {$(this).dialog("close");}
+                }};
+      $("#confirmbox1").dialog(opt);
+      });
+  </script>
+</body>
+</html>

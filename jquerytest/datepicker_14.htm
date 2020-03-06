@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.ui.datepicker-zh-TW.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+    .myclass {color:white;background-color:red;}
+  </style>
+</head>
+<body>
+  <input id="deadline" type="text" value="12:00:00">
+  <input id="datepicker1" type="text">
+  <script language="JavaScript">
+    $(document).ready(function(){ 
+      $("#datepicker1").datepicker({
+        beforeShowDay: function(d) {
+          var today=new Date();       //今日此時物件
+          var Y=today.getFullYear();  //今日之年
+          var M=today.getMonth();     //今日之月
+          var D=today.getDate();      //今日之日
+          var H=today.getHours();     //此時之時
+          var m=today.getMinutes();   //此時之分
+          var S=today.getSeconds();   //此時之秒
+          var offtime=$("#deadline").val(); //今日截止時間
+          var arr=offtime.split(":");      //拆出時分秒
+          var offdt=new Date(Y,M,D,arr[0],arr[1],arr[2]); //今日截止時間物件
+          var deadline=offdt.getTime(); //今日此時毫秒數
+          var d1="" + Y + M + D;      //今日日期字串			
+          var Y=d.getFullYear();      //每日日期之年
+          var M=d.getMonth();         //每日日期之月
+          var D=d.getDate();          //每日日期之日
+          var d2="" + Y + M + D;      //每日日期字串
+          var dt=new Date(Y,M,D,H,m,S); //每日此時物件
+          var dtms=dt.getTime();      //每日此時毫秒數
+          if (d1==d2) { //傳入日期為今日
+              if (dtms < deadline) {return [true,"","Yes!"];} //今日未達:可選
+              else {return [false,"","Oops!"];} //今日已達:不可選
+              } //end of if
+          else { //傳入日期非今日
+              if (dtms > deadline) {return [true,"","Yes!"];} //明日以後:可選
+              else {return [false,"","Oops!"];} //今日以前:不可選
+              } //end of else
+          } //end of function
+        });
+      });
+  </script>
+</body>

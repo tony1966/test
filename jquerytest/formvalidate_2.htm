@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 測試</title>
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.validationEngine.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.validationEngine-zh_TW.js"></script>
+  <link href="../jquery/validationEngine.jquery.css" rel="stylesheet">
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+	<form id="login_form" method="post" action="">
+	  帳號 :<input type="text" name="account"><br>
+	  密碼 :<input type="password" name="password"><br>
+	  <input type="button" id="login" value="登入">
+	</form>
+  <script language="JavaScript">
+    $(document).ready(function(){ 
+      $("#login").click(function() {
+        if ($(":input[name=account]").val()=="") {
+            alert("請輸入帳號!");
+            this.focus();
+            return;
+            }
+        if ($("[name=password]").val()=="") {
+            alert("請輸入密碼!");
+            this.focus();
+            return;
+            } 
+        $("#login_form").attr("action","login.php");
+        $("#login_form").submit();
+        });
+      });
+  </script>
+</body>
+</html>

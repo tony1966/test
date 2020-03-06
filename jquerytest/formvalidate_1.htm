@@ -1,0 +1,28 @@
+<html>
+<head><title>Login</title></head>
+<body>
+<form name="login_from" method="post" action="">
+  帳號 :<input type="text" name="account"><br>
+  密碼 :<input type="password" name="password"><br>
+  <input type="button" name="login" value="登入" 
+  onclick="javascript:validate(this.form)">
+</form>
+<script type="text/javascript">
+function validate(formObj) {
+  var account=formObj.account.value;
+  var password=formObj.password.value;
+  if (account=="") {
+      alert("請輸入帳號"); 
+      formObj.account.focus();
+      return;
+      }
+  if (password=="") {
+      alert("請輸入密碼"); 
+      formObj.password.focus();
+      }
+  formObj.action="login.php";
+  formObj.submit();
+  }
+</script>
+</body>
+</html>

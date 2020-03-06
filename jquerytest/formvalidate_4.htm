@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery 測試</title>
+  <script type="text/javascript" src="../jquery/jquery.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.validationEngine.js"></script>
+  <script type="text/javascript" src="../jquery/jquery.validationEngine-zh_TW.js"></script>
+  <link href="../jquery/validationEngine.jquery.css" rel="stylesheet">
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+	<form id="login_form" method="post" action="">
+    <div>
+      <label for="account">帳號 :</label>
+      <input type="text" name="account" class="required">
+    </div>
+    <div>
+      <label for="password">密碼 :</label>
+	    <input type="password" name="password" class="required">
+    </div>
+    <div>
+	    <input type="button" id="login" value="登入">
+    </div>
+	</form>
+  <script language="JavaScript">
+    $(document).ready(function(){ 
+      $("#login").click(function() {
+        var invalid=false;
+        $(".required").each(function() {
+          if (this.value=="") {
+              if ($(this).is("[name=account]")) {
+                  $(this).parent().append($("<span> * 請輸入帳號!</span>"));
+                  }
+              if ($(this).is("[name=password]")) {
+                  $(this).parent().append($("<span> * 請輸入密碼!</span>")); 
+                  }   
+              invalid=true;
+              }
+          });
+        if (invalid) {return;}
+        $("#login_form").attr("action","login.php");
+        $("#login_form").submit();
+        });
+      });
+  </script>
+</body>
+</html>

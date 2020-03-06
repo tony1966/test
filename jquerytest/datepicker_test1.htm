@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  input : id=datepicker1 <input id="datepicker1"><br>
+  <span id="datepicker2">span : id=datepicker2</span>
+  <div id="datepicker3">div : id=datepicker3</div>
+  <script language="JavaScript">
+    $(document).ready(function(){
+      var show_date=function() {alert($("#datepicker2").datepicker('getDate'));}
+      $("#datepicker1").datepicker({changeYear: true, changeMonth: true});
+      $("#datepicker2").datepicker({onSelect:show_date});
+      $("#datepicker3").datepicker({dayNames:["日","一","二","三","四","五","六"]});
+      });
+  </script>
+</body>
+</html>

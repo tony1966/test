@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta class="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <p id="result"></p>
+    <script> 
+      $(function(){
+        var arr=[];
+        var str="<b>Hello, World</b><script>alert('ok');<\/script>";
+        var html=$.parseHTML(str,document,true);
+        arr.push("&lt;b&gt;Hello, World&lt;/b&gt;&lt;script&gt;alert('ok');&lt;\/script&gt;<br>");
+        $.each(html, function(i, v){
+          arr.push('<li>' + v.nodeName + '</li>');
+          });
+        $("#result").html("<ul>" + arr.join("") + "</ul>");
+        });
+    </script>
+  </body>
+</html>

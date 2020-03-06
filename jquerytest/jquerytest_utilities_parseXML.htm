@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta class="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    str="&lt;?xml version='1.0' ?&gt;&lt;result&gt;&lt;user&gt;tony&lt;/user&gt;&lt;pwd&gt;123&lt;/pwd&gt;&lt;/result&gt;";
+    <p id="result"></p>
+    <script> 
+      $(function(){
+        var arr=[];
+        var str="<?xml version='1.0' ?><result><user>tony</user><pwd>123</pwd></result>";
+        var xmldoc=$.parseXML(str);
+        var xml=$(xmldoc);
+        var user=xml.find("user");
+        var pwd=xml.find("pwd");
+        arr.push("user=" + user.text());
+        arr.push("pwd=" + pwd.text());
+        $("#result").html(arr.join("<br>"));
+        });
+    </script>
+  </body>
+</html>

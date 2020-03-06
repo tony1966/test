@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var arr=["12345-6789","234567-123","8888a-5432"];
+        document.write('arr=["12345-6789","234567-123","8888a-5432"]<br>');
+        var narr=$.grep(arr, function(value){
+          return value.match(/^\d{5}(-\d{4})?$/) != null;
+          });
+        document.write("valid ZIP: " + narr.join() + "<br>");
+        var narr=$.grep(arr, function(value){
+          return value.match(/^\d{5}(-\d{4})?$/) != null;
+          }, true);
+        document.write("invalid ZIP: " + narr.join() + "<br>");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script> 
+      $(function(){
+        var arr=[];
+        var fruits=["apple", "grape", "guava"];
+        arr.push('var arr=["apple", "grape", "guava"]');
+        var idx=$.inArray("grape", fruits);
+        arr.push('$.inArray("grape", fruits): ' + idx);
+        var idx=$.inArray("pineapple", fruits);
+        arr.push('$.inArray("pineapple", fruits): ' + idx);
+        var idx=$.inArray("guava", fruits);
+        arr.push('$.inArray("guava", fruits): ' + idx);
+        $("#result").html(arr.join("<br>"));
+        });
+    </script>
+  </body>
+</html>

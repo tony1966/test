@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var arr=[34,78,99,84,56,22,100];
+        document.write('arr=[34,78,99,84,56,22,100]<br>');
+        var narr=$.grep(arr, function(value){
+          return value >= 60;
+          });
+        document.write("value >= 60 : " + narr.join() + "<br>");
+        narr=$.grep(arr, function(value){
+          return value >= 60;
+          }, true);
+        document.write("value >= 60 (invert) : " + narr.join() + "<br>");
+        narr=$.grep(arr, function(value, index){
+          return index > 4;
+          });
+        document.write("index > 4 : " + narr.join() + "<br>");
+        });
+    </script>
+  </body>
+</html>

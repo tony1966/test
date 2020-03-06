@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script> 
+      $(function(){
+        var arr=[];
+        var b=$.isArray([]);
+        arr.push('$.isArray([]): ' + b);
+        b=$.isArray(new Array("a", "b"));
+        arr.push('$.isArray(new Array("a", "b")): ' + b);
+        b=$.isArray({});
+        arr.push('$.isArray({}): ' + b);
+        b=$.isArray($);
+        arr.push('$.isArray($): ' + b);
+        b=$.isArray("Hello World!");
+        arr.push('$.isArray("Hello World!"): ' + b);
+        $("#result").html(arr.join("<br>"));
+        });
+    </script>
+  </body>
+</html>

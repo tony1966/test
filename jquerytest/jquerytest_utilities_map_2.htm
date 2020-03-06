@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var obj1={math:57,chinese:95,english:78,art:45};
+        document.write('obj1={math:57,chinese:95,english:78,art:45}<br>');
+        var result1=$.map(obj1, function(value, attr){
+          return value < 60 ? attr : null;
+          });
+        document.write("value < 60 : " + result1 + "<br>");
+        document.write($.isArray(result1) + "<br>");
+        var obj2={a:1,b:[2,3],c:{c1:4,c3:5}};
+        document.write('obj2={a:1,b:[2,3],c:{c1:4,c3:5}}<br>');
+        var result2=$.map(obj2, function(value, attr){
+          return value;
+          });
+        document.write("value : " + result2 + "<br>");
+        document.write("$.isArray(result2): " + $.isArray(result2) + "<br>");
+        document.write("$.isArray(result2[3]): " + $.isArray(result2[3]) + "<br>");
+        document.write("$.isPlainObject(result2[3]): " + $.isPlainObject(result2[3]) + "<br>");
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/eggplant/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+      font-size:12px;
+      }
+  </style>
+</head>
+<body>
+  <p>請選擇最討厭的水果 (單選) :</p>
+  <div>
+    <input type="radio" name="hatest_fruit" id="h1" value="芭樂">
+    <label for="h1">芭樂</label></input>
+    <input type="radio" name="hatest_fruit" id="h2" value="香蕉">
+    <label for="h2">香蕉</label></input>
+    <input type="radio" name="hatest_fruit" id="h3" value="葡萄">
+    <label for="h3">葡萄</label></input>
+    <input type="radio" name="hatest_fruit" id="h4" value="榴槤">
+    <label for="h4">榴槤</label></input>
+    <input type="radio" name="hatest_fruit" id="h5" value="木瓜">
+    <label for="h5">木瓜</label></input>
+  </div>
+  <p>請選擇最常吃的水果 (複選) :</p>
+  <div>
+    <input type="checkbox" name="often_fruit" id="o1" value="芭樂">
+    <label for="o1">芭樂</label></input>
+    <input type="checkbox" name="often_fruit" id="o2" value="香蕉">
+    <label for="o2">香蕉</label></input>
+    <input type="checkbox" name="often_fruit" id="o3" value="葡萄">
+    <label for="o3">葡萄</label></input>
+    <input type="checkbox" name="often_fruit" id="o4" value="榴槤">
+    <label for="o4">榴槤</label></input>
+    <input type="checkbox" name="often_fruit" id="o5" value="木瓜">
+    <label for="o5">木瓜</label></input>
+  </div><br><br>
+  <button id="ok">確定</button>
+  <button id="usable">Enable</button>
+  <button id="icon">Show Icon</button>
+  <script>
+    $(document).ready(function(){
+      var config={
+        disabled: true, 
+        icon: false,
+        classes: {"ui-checkboxradio": "highlight"}
+        };
+      $("input").checkboxradio(config);  
+      $("#ok").button();
+      $("#usable").button();
+      $("#usable").click(function(e) {
+        var isDisabled=$("input").checkboxradio("option", "disabled");
+        if (isDisabled) { //現在是不可用狀態
+          $("input").checkboxradio("enable");
+          $("#usable").html("Disable");
+          }
+        else {  //現在是可用狀態
+          $("input").checkboxradio("disable");
+          $("#usable").html("Enable");
+          }
+        });
+      $("#icon").button();
+      $("#icon").click(function(e) {
+        var haveIcon=$("input").checkboxradio("option", "icon");
+        if (haveIcon) { //現在有圖樣
+          $("input").checkboxradio("option", "icon", false);
+          $("#icon").html("Show icon");
+          }
+        else {  //現在無圖樣
+          $("input").checkboxradio("option", "icon", true);
+          $("#icon").html("Hide icon");
+          }
+        });
+      $("#ok").button();
+      $("#ok").click(function(e) {
+        var hatest_fruit=$("[name=hatest_fruit]:radio:checked").val();
+        var arr=[];
+        $("[name=often_fruit]:checkbox:checked").each(function(){
+          arr.push($(this).val());
+          });
+        var often_fruit=arr.join();
+        var msg="您最討厭的水果是 : " + hatest_fruit + "\n" +
+                "您最常吃的水果是 : " + often_fruit;
+        alert(msg); 
+        });
+      });
+  </script>
+</body>
+</html>

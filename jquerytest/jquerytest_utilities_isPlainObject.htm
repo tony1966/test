@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div id="result"></div>
+    <script> 
+      $(function(){
+        var arr=[];
+        var b=$.isPlainObject({});
+        arr.push('$.isPlainObject({}): ' + b);
+        b=$.isPlainObject(new Object());
+        arr.push('$.isPlainObject(new Object()): ' + b);
+        b=$.isPlainObject("Hello World!");
+        arr.push('$.isPlainObject("Hello World!"): ' + b);
+        b=$.isPlainObject($);
+        arr.push('$.isPlainObject($): ' + b);
+        b=$.isPlainObject(document.location);
+        arr.push('$.isPlainObject(document.location): ' + b);
+        $("#result").html(arr.join("<br>"));
+        });
+    </script>
+  </body>
+</html>

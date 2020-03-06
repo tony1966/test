@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta class="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div class="red">a</div>
+    <div class="blue">b</div>
+    <div class="blue">c</div>
+    <div class="green">d</div>
+    <div class="red">e</div>
+    <p id="result"></p>
+    <script> 
+      $(function(){
+        var arr=[];
+        //取得 div 元素陣列 div0
+        var div0=$("div").get();
+        arr.push('div0=$("div").get() : ');
+        $.each(div0, function(k, v){
+          arr.push($(v).html() + ',');
+          });
+        arr.push('<br>');
+        //取得 class=blue 之元素陣列 div1
+        var div1=$(".blue").get();
+        arr.push('div1=$(".blue").get() : ');
+        $.each(div1, function(k, v){
+          arr.push($(v).html() + ',');
+          });
+        arr.push('<br>');
+        //串接元素陣列 div0 與 div1 傳回 div2
+        var div2=div0.concat(div1);
+        arr.push('div2=div0.concat(div1) : ');
+        $.each(div2, function(k, v){
+          arr.push($(v).html() + ',');
+          });
+        arr.push('<br>');
+        //去除 div2 中的重複元素傳回 div3
+        var div3=$.unique(div2);
+        arr.push('div3=$.unique(div2) : ');
+        $.each(div3, function(k, v){
+          arr.push($(v).html() + ',');
+          });
+        $("#result").html(arr.join(""));
+        });
+    </script>
+  </body>
+</html>

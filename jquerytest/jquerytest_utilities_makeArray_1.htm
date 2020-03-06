@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var obj={a:1, b:2, c:3};
+        document.write('obj={a:1, b:2, c:3}<br>');
+        document.write('arr=$.makeArray(obj)<br>');
+        var arr=$.makeArray(obj);
+        document.write("$.isArray(arr): " + $.isArray(arr) + "<br>");
+        document.write("arr.length : " + arr.length + "<br>");
+        document.write('$.each(arr, callback) : ');
+        $.each(arr, function(idx, value){
+          document.write("arr[" + idx + "]=" + value + ", ");
+          });
+        document.write("arr[]: " + arr.join() + "<br>");
+        document.write("$.isPlainObject(arr[0]): " + $.isPlainObject(arr[0]) + "<br>");
+        document.write("for (var attr in arr[0]): ");
+        for (var attr in arr[0]){ 
+          document.write(attr + ":" + arr[0][attr] + ", ");
+          }
+        });
+    </script>
+  </body>
+</html>

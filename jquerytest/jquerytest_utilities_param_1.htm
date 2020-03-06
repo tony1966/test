@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta class="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>  
+    <script> 
+      $(function(){
+        var obj1={user:"tony",pwd:"123"};
+        document.write('obj1={user:"tony",pwd:"123"}<br>');
+        var qstr=$.param(obj1);
+        document.write(qstr + '<br>');
+        var obj2={a:1,b:{b1:2,b2:3},c:[4,5,6]};
+        document.write('obj2={a:1,b:{b1:2,b2:3},c:[4,5,6]}<br>');
+        var qstr=$.param(obj2);
+        document.write(qstr + '<br>');
+        });
+    </script>
+  </body>
+</html>

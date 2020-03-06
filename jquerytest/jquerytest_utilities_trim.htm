@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <input type="text" id="origin">
+    <button id="btn">$.trim()</button>
+    <input type="text" id="trimed">
+    <div id="len"></div>
+  <script>   
+    $(function(){
+      $("#btn").click(function(){
+        var origin=$("#origin").val();
+        var trimed=$.trim(origin);
+        $("#trimed").val(trimed);  
+        var out="輸入長度:" + origin.length + " 輸出長度:" + trimed.length;
+        $("#len").html(out);  
+        });
+      });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li>A</li>
+      <li>B</li>
+      <li>C</li>
+    </ul>
+  <script> 
+    $(function(){
+      $.print=function(msg){$("<div></div>").html(msg).appendTo('body');};
+      var obj=$("li");
+      $.print($.type(obj));
+      $.each(obj, function(k, v) {
+        $.print("<hr/>");
+        $.print(k + ":" + v);
+        $.each(v, function(k, v){
+          $.print(k + ":" + v);
+          });
+        });
+      });
+  </script>
+  </body>
+</html>

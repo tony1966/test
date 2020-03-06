@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var arr=[9,3,4,3,7,3];
+        document.write('arr=[9,3,4,3,7,3]<br>');
+        var arr1=$.unique(arr);
+        document.write('arr1[]: ');
+        $.each(arr1, function(index, value){
+          document.write(value + ", ");
+          });
+        });
+    </script>
+  </body>
+</html>

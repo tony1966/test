@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var arr=["a", "b", "c"];
+        var obj={name:"tony", gender:"male", age:18}; 
+        var str="Hello World!";
+        document.write('arr=["a", "b", "c"]<br>');
+        document.write('obj={name:"tony", gender:"male", age:18}<br>');        
+        document.write('str="Hello World!"<br>');        
+        //測試物件的 for in 迴圈
+        document.write('for (var attr in obj) : ');
+        for (var attr in obj){
+          document.write(attr + ":" + obj[attr] + ", ");
+          }
+        document.write("<br>");
+        //測試陣列的 for in 迴圈
+        document.write('for (var idx in arr) : ');
+        for (var idx in arr){
+          document.write(arr[idx] + ", ");
+          }
+        document.write("<br>");
+        //測試字串的 for in 迴圈
+        document.write('for (var idx in str) : ');
+        for (var idx in str){
+          document.write(str[idx] + ", ");
+          }
+        document.write("<br>");
+        //測試陣列的 for of 迴圈
+        document.write('for (var ele of arr) : ');
+        for (var ele of arr){
+          document.write(ele + ", ");
+          }
+        document.write("<br>");
+        //測試字串的 for of 迴圈
+        document.write('for (var ele of str) : ');
+        for (var ele of str){
+          document.write(ele + ", ");
+          }
+        document.write("<br>");
+        //測試陣列的 forEach() 方法
+        document.write('arr.forEach : ');
+        arr.forEach(function(ele) {
+          document.write(ele + ",");
+          });
+        document.write("<br>");
+        });
+    </script>
+  </body>
+</html>

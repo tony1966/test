@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var arr1=[1,2,3];
+        var arr2=[4,5,6];
+        document.write('arr1=[1,2,3]<br>');
+        document.write('arr2=[4,5,6]<br>');
+        var arr1_bak=$.merge([], arr1);
+        document.write('arr1_bak[]: ');
+        $.each(arr1_bak, function(value){
+          document.write(value + ", ");
+          });
+        document.write("<br>");
+        var arr3=$.merge(arr1, arr2);
+        document.write('arr3[]: ');
+        $.each(arr3, function(value){
+          document.write(value + ", ");
+          });
+        document.write("<br>");
+        document.write('arr1[]: ');
+        $.each(arr1, function(value){
+          document.write(value + ", ");
+          });
+        document.write("<br>");
+        });
+    </script>
+  </body>
+</html>

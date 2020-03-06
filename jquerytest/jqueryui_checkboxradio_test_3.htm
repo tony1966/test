@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <script src="jquery.min.js"></script>
+  <script src="jquery-ui.min.js"></script>
+  <link id="theme" href="themes/eggplant/jquery-ui.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: 微軟正黑體, Arial, Helvetica, sans-serif;
+      font-size:12px;
+      }
+  </style>
+</head>
+<body>
+  <select id="themes">
+    <option value="base">base</option>
+    <option value="black-tie">black-tie</option>
+    <option value="blitzer">blitzer</option>
+    <option value="cupertino">cupertino</option>
+    <option value="dark-hive">dark-hive</option>
+    <option value="dot-luv">dot-luv</option>
+    <option value="eggplant">eggplant</option>
+    <option value="excite-bike">excite-bike</option>
+    <option value="flick">flick</option>
+    <option value="hot-sneaks">hot-sneaks</option>
+    <option value="humanity">humanity</option>
+    <option value="le-frog">le-frog</option>
+    <option value="mint-choc">mint-choc</option>
+    <option value="overcast">overcast</option>
+    <option value="pepper-grinder">pepper-grinder</option>
+    <option value="redmond">redmond</option>
+    <option value="smoothness">smoothness</option>
+    <option value="south-street">south-street</option>
+    <option value="start">start</option>
+    <option value="sunny">sunny</option>
+    <option value="swanky-purse">swanky-purse</option>
+    <option value="trontastic">trontastic</option>
+    <option value="ui-darkness">ui-darkness</option>
+    <option value="ui-lightness">ui-lightness</option>
+    <option value="vader">vader</option>
+  </select>
+  <p>請選擇最討厭的水果 (單選) :</p>
+  <div>
+    <input type="radio" name="hatest_fruit" id="h1" value="芭樂">
+    <label for="h1">芭樂</label></input>
+    <input type="radio" name="hatest_fruit" id="h2" value="香蕉">
+    <label for="h2">香蕉</label></input>
+    <input type="radio" name="hatest_fruit" id="h3" value="葡萄">
+    <label for="h3">葡萄</label></input>
+    <input type="radio" name="hatest_fruit" id="h4" value="榴槤">
+    <label for="h4">榴槤</label></input>
+    <input type="radio" name="hatest_fruit" id="h5" value="木瓜">
+    <label for="h5">木瓜</label></input>
+  </div>
+  <p>請選擇最常吃的水果 (複選) :</p>
+  <div>
+    <input type="checkbox" name="often_fruit" id="o1" value="芭樂">
+    <label for="o1">芭樂</label></input>
+    <input type="checkbox" name="often_fruit" id="o2" value="香蕉">
+    <label for="o2">香蕉</label></input>
+    <input type="checkbox" name="often_fruit" id="o3" value="葡萄">
+    <label for="o3">葡萄</label></input>
+    <input type="checkbox" name="often_fruit" id="o4" value="榴槤">
+    <label for="o4">榴槤</label></input>
+    <input type="checkbox" name="often_fruit" id="o5" value="木瓜">
+    <label for="o5">木瓜</label></input>
+  </div><br>
+  <button id="ok">確定</button>
+  <script>
+    $(document).ready(function(){
+      $("#themes").selectmenu();
+      $("#themes").val("eggplant");
+      $("#themes").selectmenu("refresh");
+      $('#themes').on('selectmenuchange', function() {
+        var theme=$(this).val();
+        var href="themes/" + theme + "/jquery-ui.min.css";
+        $("#theme").attr("href", href);
+        });
+      $("#ok").button();
+      $("input").checkboxradio();
+      $("#ok").click(function(e) {
+        var hatest_fruit=$("[name=hatest_fruit]:radio:checked").val();
+        var arr=[];
+        $("[name=often_fruit]:checkbox:checked").each(function(){
+          arr.push($(this).val());
+          });
+        var often_fruit=arr.join();
+        var msg="您最討厭的水果是 : " + hatest_fruit + "\n" +
+                "您最常吃的水果是 : " + often_fruit;
+        alert(msg); 
+        });
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <ul id="result">
+      <li>a</li>
+      <li>b</li>
+      <li>c</li>
+      <li>d</li>
+      <li>e</li>
+    </ul>
+    <button id="reverse">reverse</button>
+    <button id="push">push</button>
+    <button id="pop">pop</button>
+    <button id="sort">sort</button><br><br>
+    <div id="info"></div>
+    <script> 
+      $(function(){
+        var i=1;
+        $("#reverse").click(function(){
+          var obj=$("li");
+          var arr=$.makeArray(obj);
+          arr.reverse();
+          var info=[];
+          info.push('obj=$("li")<br>'); 
+          info.push('arr=$.makeArray(obj)<br>'); 
+          info.push("$.isArray(arr): " + $.isArray(arr) + "<br>"); 
+          info.push("arr.length : " + arr.length + "<br>"); 
+          $("#info").html(info.join(""));
+          $("#result").html($(arr));
+          });
+        $("#push").click(function(){
+          $("#result").append("<li>" + (i++) + "</li>");
+          var obj=$("li");
+          var arr=$.makeArray(obj);
+          var info=[];
+          info.push('obj=$("li")<br>'); 
+          info.push('arr=$.makeArray(obj)<br>'); 
+          info.push("$.isArray(arr): " + $.isArray(arr) + "<br>"); 
+          info.push("arr.length : " + arr.length + "<br>"); 
+          $("#info").html(info.join(""));
+          $("#result").html($(arr));
+          });
+        $("#pop").click(function(){
+          var obj=$("li");
+          var arr=$.makeArray(obj);
+          arr.pop();
+          var info=[];
+          info.push('obj=$("li")<br>'); 
+          info.push('arr=$.makeArray(obj)<br>'); 
+          info.push("$.isArray(arr): " + $.isArray(arr) + "<br>"); 
+          info.push("arr.length : " + arr.length + "<br>"); 
+          $("#info").html(info.join(""));
+          $("#result").html($(arr));
+          });
+        $("#sort").click(function(){
+          var obj=$("li");
+          var arr=$.makeArray(obj);
+          arr.sort();
+          var info=[];
+          info.push('obj=$("li")<br>'); 
+          info.push('arr=$.makeArray(obj)<br>'); 
+          info.push("$.isArray(arr): " + $.isArray(arr) + "<br>"); 
+          info.push("arr.length : " + arr.length + "<br>"); 
+          $("#info").html(info.join(""));
+          $("#result").html($(arr));
+          });
+        });
+    </script>
+  </body>
+</html>

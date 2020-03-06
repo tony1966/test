@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <script> 
+      $(function(){
+        var score=[34,78,99,84,56,22,100];
+        document.write('arr=[34,78,99,84,56,22,100]<br>');
+        var result1=$.map(score, function(value){
+          return value < 60 ? value + 5 : value;
+          });
+        document.write("result1[]: " + result1.join() + "<br>");
+        var result2=$.map(score, function(value){
+          return value > 60 ? value + 5 : null;
+          });
+        document.write("result2[]: " + result2.join() + "<br>");
+        var result3=$.map(score, function(value, index){
+          return value > 60 ? [value, index] : null;
+          });
+        document.write("result3[]: " + result3.join() + "<br>");
+        var data=["2","4.5","23%","10","@!","22"];
+        document.write('data=["2","4.5","23%","10","@!","22"]<br>');
+        var result4=$.map(data, function(value){
+          var num=new Number(value);
+          return isNaN(num) ? undefined : num;
+          });
+        document.write("result4[]: " + result4.join() + "<br>");
+        });
+    </script>
+  </body>
+</html>

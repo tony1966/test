@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Highstock 測試</title>
+  <script src="../jquery/jquery.js"></script>
+  <script src="../jquery/highstock.js"></script>
+  <script src="../jquery/exporting.js"></script>
+</head>
+<body>
+  <div id="container" style="min-width: 600px; height: 400px; margin: 0 auto">
+  </div>
+  <script>
+    $(function () {
+      var url="http://www.highcharts.com/samples/data/jsonp.php?a=e&filename=" +
+              "aapl-ohlc.json&callback=?";
+      $.getJSON(url, function(data) {
+        $('#container').highcharts('StockChart', {
+          rangeSelector: {selected : 1},
+          title: {text: 'AAPL Stock Price'},
+          series: [{
+            type: 'candlestick',
+            name: 'AAPL Stock Price',
+            data: data,
+            dataGrouping: {units: [['week', [1]], ['month',[1, 2, 3, 4, 6]]]}
+            }]
+          });
+        });
+      });
+  </script>
+</body>
+</html>

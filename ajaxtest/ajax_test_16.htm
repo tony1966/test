@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+  <form">
+   <button id="login">載入</button>
+  </form>
+  <div id="result"></div>
+  <script>   
+    $(function(){
+      $("#login").click(function(){
+        $.ajax({
+          type: "POST", 
+          url: "test_json2.php",
+          success: function(data) {
+            var i=0, arr=[];
+            $.each(data, function (k, v){
+              arr[i]=k + ' ' + v['English'] + ' ' + v['Chinese'] + ' ' + v['Math'];
+              ++i;
+              });
+            $("#result").html(arr.join('<br>'));
+            },
+          error: function(xhr) {
+            alert(xhr.status);
+            }        
+          });
+        return false;
+        });
+      });
+  </script>
+  </body>
+</html>

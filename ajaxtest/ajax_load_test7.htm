@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ajax load test</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+  <div id="result"></div>
+  <input type="button" id="load" value="load">
+  <script>     
+    $(function(){
+      $("#load").click(function() {
+        $("#result").load("test.php",
+	        function(responseText,textStatus,XMLHttpRequest) {
+			      var msg="載入完成!\n" + 
+			              "responseText=" + responseText + "\n" +
+				            "textStatus=" + textStatus + "\n" +
+				            "XMLHttpRequest=" + XMLHttpRequest + "\n";
+            alert(msg);
+	          }
+          );
+        });
+      });
+  </script>
+</body>
+</html>

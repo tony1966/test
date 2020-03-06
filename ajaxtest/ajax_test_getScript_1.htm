@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+  <form>
+   <button id="load">載入 Script</button>
+   <div id="result"></div>
+  </form>
+  <script> 
+    var i=0;
+    $(function(){
+      $("#load").click(function(){
+        $.getScript({
+          url: "test_script.js",
+          dataType: "script",
+          success: function() {
+            $("#result").html("Ajax 請求成功!<br>");
+            }
+          });
+        return false;
+        });
+      });
+  </script>
+  </body>
+</html>

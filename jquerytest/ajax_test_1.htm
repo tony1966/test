@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <div id='msg'>
+      <p id='message'></p>
+      <input type='text' id='msg' size='30'>
+      <input type='button' id='btn' value='確定'>
+    </div>
+    <script>
+      $(function(){
+        $('#btn').click(function() {
+          $.ajax({
+            type: "GET", 
+            url: "test_1.php", 
+            dataType: "xml", 
+            data: {
+              user: "tony",
+              pwd: 123,
+              },
+            success: function(data) {
+              if (data.result){
+                $("#msg").val(data.result); 
+                }
+              },
+            error: function(xhr) {
+              alert(xhr.status);
+              }
+            });
+          }
+        });
+    </script>
+  </body>
+</html>

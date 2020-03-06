@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  股名 (輸入 "王","創") : <input id="auto1" type="text" />
+  股號 (輸入 "11","22") : <input id="auto2" type="text" />
+  <script language="JavaScript">
+    $(document).ready(function(){
+      var stock_name=[{label:"味王"},
+                      {label:"車王電"},
+                      {label:"葡萄王"},
+                      {label:"王品"},
+                      {label:"花王"},
+                      {label:"緯創"},
+                      {label:"創意"}];
+      var stock_id=[{value:"1101"},
+                    {value:"1102"},
+                    {value:"1103"},
+                    {value:"2204"},
+                    {value:"2207"},
+                    {value:"2227"},
+                    {value:"2206"}];
+      $("#auto1").autocomplete({source: stock_name});
+      $("#auto2").autocomplete({source: stock_id});
+      });
+  </script>
+</body>
+</html>

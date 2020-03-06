@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI 測試</title>
+  <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <link href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css" rel="stylesheet">
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.0.min.js"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.2/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+  <style>
+    article,aside,figure,figcaption,footer,header,hgroup,menu,nav,section {display:block;}
+    body {font: 62.5% "Trebuchet MS", sans-serif; margin: 50px;}
+  </style>
+</head>
+<body>
+  <table id="table1"></table>
+  <script language="JavaScript">
+    $(document).ready(function(){ 
+      var opt={"oLanguage":{"sUrl":"dataTables.zh-tw.txt"},
+               "bJQueryUI":true,
+               "sPaginationType":"full_numbers",
+               "aoColumns":[{"sTitle":"股票名稱"},{"sTitle":"股票代號"}],
+               "sAjaxSource":"http://mybidrobot.allalla.com/jquerytest/get_stocks_list_aa.php"
+               };
+      $("#table1").dataTable(opt);
+      });
+  </script>
+</body>
+</html>

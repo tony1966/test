@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <style>
+    </style>
+  </head>
+  <body>
+    <form id="hello_form">
+      <label for="name">姓名</label>
+      <input type="text" id="name" name="name"><br>
+      <button id="calculate10" style="width:100px">10% 停損</button>
+    </form>
+    <script>
+      $(document).ready(function(){
+        $('#calculate5').click({ratio: 0.05}, stop_loss);
+        $('#calculate10').on('click', {ratio: 0.1}, stop_loss);
+        function stop_loss(e) {
+          e.preventDefault();
+          $.ajax({
+            type: "POST", 
+            url: "calculate_stop_loss.php", 
+            dataType: "json", 
+            data: {
+              buy: $('#buy').val(),
+              close: $('#close').val(),
+              ratio: e.data.ratio
+              },
+            success: function(data) {
+              if (data.sell){
+                $("#stop_loss").val(data.sell); 
+                }
+              },
+            error: function(xhr) {
+              $.messager.alert('訊息',xhr.status,"error");
+              }
+            });
+          }
+        });
+    </script>
+  </body>
+</html>

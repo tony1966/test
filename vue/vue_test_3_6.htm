@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js"></script>
+  </head>
+  <body>
+    <div id='msg'>
+      <p>{{ arr }}</p>
+      <p>{{ arr | json }}</p>
+      <p>{{ obj }}</p>
+      <p>{{ obj | json }}</p>
+      <p>{{ arr | filterBy 'A' }}</p>
+      <p>{{ arr | limitBy 1,2 }}</p>
+      <p>{{ obj | orderBy name | json }}</p>
+    </div>
+    <script> 
+      new Vue({
+        el: '#msg',
+        data: {
+          arr: ['Tony', 'Amy', 'Peter', 'Kelly'],
+          obj: [{name:'Kelly', age:20},{name:'Amy', age:16}]
+          }
+        });	
+    </script>
+  </body>
+</html>

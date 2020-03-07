@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://vuejs.org/js/vue.js"></script>    
+  </head>
+  <body>
+    <div id='msg'>
+      <p v-html='message'></p>
+      <input type='text' v-model='input_msg' size='30'>
+      <input type='button' v-on:click='doSomething' value='確定'>
+    </div>
+    <script>
+      new Vue({
+        el: '#msg', 
+        data: {
+          message: 'Hello World!',
+          input_msg: ''
+          },
+        methods: {
+          doSomething: function() {
+            this.message='您輸入了 : ' + this.input_msg;
+            }
+          }
+        });
+    </script>
+  </body>
+</html>

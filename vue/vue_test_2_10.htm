@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>    
+  </head>
+  <body>
+    <div id='msg'>
+      <p id='message'></p>
+      <input type='text' id='input_msg' size='30'>
+      <input type='button' id='button1' value='確定'>
+    </div>
+    <script>
+      $('#message').html('Hello World!');
+      $('#button1').click(function() {
+        var input_msg=$('#input_msg').val();
+        $('#message').html('您輸入了 : ' + input_msg);
+        });
+    </script>
+  </body>
+</html>

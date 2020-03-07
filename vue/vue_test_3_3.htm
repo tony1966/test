@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://vuejs.org/js/vue.js"></script>
+  </head>
+  <body>
+    <div id='msg'>
+      <p> {{ '1+2+3+...+' + number + '=' + sum }}</p>
+      <input type='text' v-model="number">
+    </div>
+    <script> 
+      new Vue({
+        el: '#msg',
+        data: {
+          number: '10'
+          },
+        computed: {
+          sum() {
+            var total=0
+            for (var i=1; i<=this.number; i++) {
+              total += i;
+              }
+            return total;
+            }
+          }
+        });	
+    </script>
+  </body>
+</html>

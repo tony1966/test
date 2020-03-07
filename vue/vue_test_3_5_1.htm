@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.4/vue.js"></script>
+  </head>
+  <body>
+    <div id='msg'>
+      <p>{{ message | lowercase }}</p>
+      <p>{{ message | uppercase }}</p>
+      <p>{{ 'hello world!' | capitalize }}</p>
+      <p>{{ message | pluralize }}</p>
+      <p>{{ 'Debounce 1 seccond' | debounce 1000 }}</p>
+    </div>
+    <script> 
+      new Vue({
+        el: '#msg',
+        data: {
+          message: 'Hello World!'
+          }
+        });	
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Show QR code</title>
+  <meta charset="utf-8" />
+	<script type="text/javascript">
+    function bt1Click(){
+	   var Name = document.getElementById('Name').value;
+	   var Title = document.getElementById('Title').value;
+	   Name = Name  + ' ' + Title;
+	   var ORG = document.getElementById('ORG').value;	   
+	   var address = document.getElementById('address').value;
+	   var phone1 = document.getElementById('phone1').value;
+	   var email = document.getElementById('email').value;	  
+	   var URL = document.getElementById('URL').value;	 		
+	   //var combinedURL = 'http://chart.apis.google.com/chart?cht=qr&chs=200x200&chl=BIZCARD:N:' + Name+';X:' + familyName+';T:'+Title+';A:'+address+';B:'+phone1+';E:'+email+';URL:'+URL+';';
+	   var combinedURL = 'http://chart.apis.google.com/chart?cht=qr&chs=200x200&chl=MECARD:N:' + Name+';ORG:'+ORG+';ADR:'+address+';TEL:'+phone1+';EMAIL:'+email+';URL:'+URL+';';
+
+	   //combinedURL = encodeURI(combinedURL);
+   
+       alert(combinedURL);
+   	   var imgTag = '<img src="'+combinedURL+'" />';
+	   document.getElementById('canvas').innerHTML = imgTag;	   
+	}    	
+    </script>
+</head>
+<body>
+	<div id='canvas'></div>
+    姓名 : <input name="Name" type="text" id="Name" value="" style="width:400px;">    
+    <BR />
+    <BR />
+    公司 : <input name="ORG" type="text" id="ORG" value="" style="width:400px;">    
+    <BR />
+    <BR />    
+    職稱 : <input name="Title" type="text" id="Title" value="" style="width:400px;">
+    <BR />
+    <BR />
+    地址 : <input name="address" type="text" id="address" value="" style="width:400px;">    
+    <BR />
+    <BR />
+    電話 : <input name="phone1" type="text" id="phone1" value="" style="width:400px;">
+    <BR />
+    <BR />
+    Email : <input name="email" type="text" id="email" value="" style="width:400px;">    
+    <BR />
+    <BR />    
+    URL : <input name="URL" type="text" id="URL" value="" style="width:400px;">    
+    <BR />
+    <BR />  
+    <input type="submit" name="bt1" id="bt1" value="Generate QR Code" onClick="bt1Click()">
+</body>
+
+</html>

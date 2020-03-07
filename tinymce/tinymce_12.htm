@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TinyMCE 測試</title>
+    <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <textarea id="editor1">TinyMCE</textarea>
+      <button onclick="get_content()">Get content</button>
+      <button onclick="set_content()">Set content</button>
+    </form>
+    <script>
+      tinyMCE.init({
+        selector:'#editor1'
+        });
+      function get_content(){
+        var content=tinymce.get("editor1").getContent();
+        alert(content);
+        }
+      function set_content(){
+        tinymce.get("editor1").setContent('Hello World! 這是 TinyMCE!');
+        }
+    </script>
+  </body>
+</html>

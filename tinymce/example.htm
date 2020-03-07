@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <script src="tinymce.min.js"></script>
+ <script>
+ tinymce.init({
+  selector:'textarea#editor1',
+  language:'zh_TW',
+  height:300,
+  menubar:true,
+  plugins:[
+    'advlist autolink lists link image charmap print preview anchor',
+    'searchreplace visualblocks code fullscreen textcolor colorpicker',
+    'insertdatetime media table contextmenu paste code hr pagebreak nonbreaking'
+    ],
+  toolbar:['newdocument preview fullscreen code print searchreplace selectall | bold italic underline strikethrough superscript subscript removeformat forecolor backcolor | alignleft aligncenter alignright alignjustify |',
+  'undo redo cut copy paste pastetext pasteword | bullist numlist outdent indent | blockquote nonbreaking hr pagebreak charmap anchor link unlink image table']
+  });
+ </script>
+ <body>
+  <textarea id="editor1"></textarea>
+ </body>
+</html>

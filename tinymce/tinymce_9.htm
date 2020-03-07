@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TinyMCE 測試</title>
+    <script src="http://cdn.tinymce.com/4/tinymce.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <textarea id="editor1">
+      Hello World! 這是 TinyMCE!
+      </textarea>
+    </form>
+    <script>
+      tinymce.init({
+        selector:'#editor1',
+        language_url:'http://mybidrobot.allalla.com/tinymce/langs/zh_TW.js',
+        plugins:[
+          'advlist autolink lists link image charmap print preview anchor',
+          'searchreplace visualblocks code fullscreen textcolor colorpicker',
+          'insertdatetime media table contextmenu paste code hr pagebreak nonbreaking'
+          ],
+        toolbar:['newdocument preview fullscreen code print searchreplace selectall | bold italic underline strikethrough superscript subscript removeformat forecolor backcolor | alignleft aligncenter alignright alignjustify |',
+        'undo redo cut copy paste pastetext pasteword | bullist numlist outdent indent | blockquote nonbreaking hr pagebreak charmap anchor link unlink image table']
+        });
+    </script>
+  </body>
+</html>

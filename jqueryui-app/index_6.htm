@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>jQuery UI Single Page Application</title>
+  <script src="jquery/jquery.js"></script>
+  <script src="jquery/jquery-ui.js"></script>
+  <script src="jquery/datatables.js"></script>
+  <link id="theme" href="jquery/themes/hot-sneaks/jquery-ui.css" rel="stylesheet">
+  <link href="jquery/datatables.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size:10px;
+      }
+  </style>
+</head>
+<body>
+  <!-- 主題佈景選擇器 -->
+  <select id="themes">
+    <option value="base">base</option>
+    <option value="black-tie">black-tie</option>
+    <option value="blitzer">blitzer</option>
+    <option value="cupertino">cupertino</option>
+    <option value="dark-hive">dark-hive</option>
+    <option value="dot-luv">dot-luv</option>
+    <option value="eggplant">eggplant</option>
+    <option value="excite-bike">excite-bike</option>
+    <option value="flick">flick</option>
+    <option value="hot-sneaks">hot-sneaks</option>
+    <option value="humanity">humanity</option>
+    <option value="le-frog">le-frog</option>
+    <option value="mint-choc">mint-choc</option>
+    <option value="overcast">overcast</option>
+    <option value="pepper-grinder">pepper-grinder</option>
+    <option value="redmond">redmond</option>
+    <option value="smoothness">smoothness</option>
+    <option value="south-street">south-street</option>
+    <option value="start">start</option>
+    <option value="sunny">sunny</option>
+    <option value="swanky-purse">swanky-purse</option>
+    <option value="trontastic">trontastic</option>
+    <option value="ui-darkness">ui-darkness</option>
+    <option value="ui-lightness">ui-lightness</option>
+    <option value="vader">vader</option>
+  </select>
+  <script>
+    $(function(){
+      $("#themes").selectmenu();
+      $("#themes").val("hot-sneaks");
+      $("#themes").selectmenu("refresh");
+      $('#themes').on('selectmenuchange', function() {
+        var theme=$(this).val();
+        var href="jquery/themes/" + theme + "/jquery-ui.min.css";
+        $("#theme").attr("href", href);
+        });
+      }); 
+  </script>
+  <!-- 頁嵌面板 -->
+  <div id="tabs">
+    <ul>
+      <li><a href="#tabs-1">A 元素按鈕</a></li>
+      <li><a href="#tabs-2">Button 元素按鈕</a></li>
+      <li><a href="#tabs-3">Input 元素按鈕</a></li>
+    </ul>
+    <div id="tabs-1">
+      <a id="open_msgbox" href="#" class="ui-button ui-widget ui-corner-all">開啟訊息盒</a>
+    </div>
+    <div id="tabs-2">
+      <button id="open_confirmbox" class="ui-button ui-widget ui-corner-all">開啟確認盒</button>
+    </div>
+    <div id="tabs-3">
+      <input type="button" id="open_inputbox" class="ui-button ui-widget ui-corner-all" value="開啟輸入盒">
+    </div>
+  </div>
+  <div id="msgbox"></div>
+  <div id="confirmbox" title="確認訊息"></div>
+  <div id="inputbox" title="輸入訊息"></div>
+  <script>
+    $(function(){
+      $("#tabs" ).tabs();
+      });    
+  </script>
+</body>
+</html>

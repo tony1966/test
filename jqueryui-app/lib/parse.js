@@ -6,6 +6,11 @@ String.prototype.get_attribute=get_attribute;
 String.prototype.trim=trim;
 String.prototype.ltrim=ltrim;
 String.prototype.rtrim=rtrim;
+String.prototype.isdigit=isdigit;
+String.prototype.startswith=startswith;
+String.prototype.endswith=endswith;
+String.prototype.title=title;
+String.prototype.swapcase=swapcase;
 String.prototype.zfill=zfill;
 String.prototype.ljust=ljust;
 String.prototype.rjust=rjust;
@@ -155,7 +160,7 @@ rtrim()
 function rtrim() {
   return this.replace(/(\s*$)/g, "");
   }
-//======以下函數來自 Python=====//
+//======以下函數改寫自 Python=====//
 //參考 : http://docs.python.org/release/2.5.2/lib/string-methods.html
 /*-----------------------------------------------------------------------------
 isdigit()
@@ -173,7 +178,7 @@ startswith(prefix[,start[, end]])
 參數 :                                     
   無
 -----------------------------------------------------------------------------*/
-String.prototype.startswith = function (prefix, start, end) { 
+function startswith(prefix, start, end) { 
   var start=start || 0;          //預設值
   var end=end || this.length-1;  //預設值
   var haystack=this.substring(start,end+1);
@@ -188,7 +193,7 @@ endswith(prefix[,start[, end]])
 參數 :                                     
   無
 -----------------------------------------------------------------------------*/
-String.prototype.endswith = function (prefix, start, end) { 
+function endswith(prefix, start, end) { 
   var start=start || 0;          //預設值
   var end=end || this.length-1;  //預設值
   var haystack=this.substring(start,end+1);
@@ -203,7 +208,7 @@ title()
 參數 :                                     
   無
 -----------------------------------------------------------------------------*/
-String.prototype.title = function () {
+function title() {
   var words=this.replace(/[ ]{2,}/g," ").split(" ");  //兩個以上連續空格改為1個
   for (var i=0; i<words.length; i++) {
     var first=words[i].charAt(0).toUpperCase();  //每字首字元大寫
@@ -219,7 +224,7 @@ swapcase(prefix[,start[, end]])
 參數 :                                     
   無
 -----------------------------------------------------------------------------*/
-String.prototype.swapcase = function () {
+function swapcase() {
   var arr=[];  //暫存字元用
   var lower=/[a-z]/;   //小寫字元
   var upper=/[A-Z]/;  //大寫字元
@@ -267,7 +272,7 @@ function ljust(width, fillchar) {
   var filler="";                 //填補字串初始值
   if (width < this.length) {return this;} //width小於字串長度:不用補,傳回本身
   else {  //需要補滿
-     for (var i=0; i<width-this.length; i++) {filler += fillchar;}  //製作填補字串
+     for (var i=0; i<width-this.length; i++) {filler += fillchar;} //填補字串
      return filler + this;  //前面冠上填補字串
      }  
   }
@@ -287,7 +292,7 @@ function rjust(width, fillchar) {
   var filler="";                 //填補字串初始值
   if (width < this.length) {return this;} //width小於字串長度:不用補,傳回本身
   else {  //需要補滿
-     for (var i=0; i<width-this.length; i++) {filler += fillchar;}  //製作填補字串
+     for (var i=0; i<width-this.length; i++) {filler += fillchar;} //填補字串
      return this + filler;  //後面冠上填補字串
      }
   }

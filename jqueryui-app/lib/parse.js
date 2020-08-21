@@ -103,12 +103,12 @@ function remove(start, stop) {
   var remove_array = this.parse_array(start, stop);  //傳回要移除的子字串陣列
   var string = this; 
   if (remove_array != null) { //有找到子字串:執行刪除
-	  for (var i = 0; i < remove_array.length; i++) {    //依序移除
-		  var reg = new RegExp(remove_array[i],"ig");    //要刪除之子字串 reg 物件
-		  var string = string.replace(reg, "");
-		  }
+    for (var i = 0; i < remove_array.length; i++) {    //依序移除
+      var reg = new RegExp(remove_array[i],"ig");    //要刪除之子字串 reg 物件
+      var string = string.replace(reg, "");
+      }
     return string; 
-	  }
+    }
   else {return this;}  //沒有找到子字串:傳回待剖析字串本身
   }
 /*-----------------------------------------------------------------------------

@@ -206,10 +206,10 @@ title()
 String.prototype.title = function () {
   var words=this.replace(/[ ]{2,}/g," ").split(" ");  //兩個以上連續空格改為1個
   for (var i=0; i<words.length; i++) {
-	    var first=words[i].charAt(0).toUpperCase();  //每字首字元大寫
-	    var others=words[i].substr(1).toLowerCase();  //第2字元至最後小寫
-	    words[i]=first + others;  //重組回字
-	    }
+    var first=words[i].charAt(0).toUpperCase();  //每字首字元大寫
+    var others=words[i].substr(1).toLowerCase();  //第2字元至最後小寫
+    words[i]=first + others;  //重組回字
+    }
   return words.join(" ");  //重組回字串傳回
   };
 /*-----------------------------------------------------------------------------
@@ -304,7 +304,7 @@ encode(key)
 function encode(key) {
   if (!key) { 
     var key="8ABC7DLO5MN6Z9EFGdeJfghijkHIVrstuvwWSTUXYabclmnopqKPQRxyz01234";
-	  } 
+    } 
   var nl=this.length;
   var t=[];
   var a,b,c,x,m=function(y){t[t.length]=key.charAt(y)};

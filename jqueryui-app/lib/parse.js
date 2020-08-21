@@ -6,7 +6,6 @@ String.prototype.get_attribute=get_attribute;
 String.prototype.trim=trim;
 String.prototype.ltrim=ltrim;
 String.prototype.rtrim=rtrim;
-String.prototype.isdigit=isdigit;
 String.prototype.zfill=zfill;
 String.prototype.ljust=ljust;
 String.prototype.rjust=rjust;
@@ -168,33 +167,6 @@ function isdigit() {
   return str.match(/D/)==null;  
   }
 /*-----------------------------------------------------------------------------
-ishex()
-  此函數會判斷字串內容是否全為 16 進位數字 (0~f).	(此函數並非來自 Python)							
-參數 :                                     
-  無
------------------------------------------------------------------------------*/
-function ishex() {
-  
-  }
-/*-----------------------------------------------------------------------------
-isalpha()
-  此函數會判斷字串內容是否全為英文字母 (與 Python 之 isdigit 同).								
-參數 :                                     
-  無
------------------------------------------------------------------------------*/
-function isalpha() {
-  
-  }
-/*-----------------------------------------------------------------------------
-isalnum()
-  此函數會判斷字串內容是否全為英文字母或數字 (與 Python 之 isalnum 同).								
-參數 :                                     
-  無
------------------------------------------------------------------------------*/
-function isalnum() {
-  
-  }
-/*-----------------------------------------------------------------------------
 startswith(prefix[,start[, end]])
   此函數會判斷字串內容是否以 prefix 開頭 (與 Python 之 startwith 同).
   備選參數 start 與 end 可指定比對之起訖位置, 預設為從頭 (0) 比到尾 (length-1).
@@ -251,15 +223,15 @@ String.prototype.swapcase = function () {
   var arr=[];  //暫存字元用
   var lower=/[a-z]/;   //小寫字元
   var upper=/[A-Z]/;  //大寫字元
-  for (var i=0; i<this.length; i++) {    //走訪每一個字元
-	    if (lower.test(this.charAt(i))) {  //小寫字母->改成大寫
-         arr.push(this.charAt(i).toUpperCase());
-		     }
-	    else if (upper.test(this.charAt(i))) {  //大寫字母->改成小寫
-		     arr.push(this.charAt(i).toLowerCase());
-		     }
-	    else {arr.push(this.charAt(i));}  //
-	    }
+  for (var i=0; i<this.length; i++) {  //走訪每一個字元
+    if (lower.test(this.charAt(i))) {  //小寫字母->改成大寫
+      arr.push(this.charAt(i).toUpperCase());
+      }
+    else if (upper.test(this.charAt(i))) {  //大寫字母->改成小寫
+      arr.push(this.charAt(i).toLowerCase());
+      }
+    else {arr.push(this.charAt(i));} 
+    }
   return arr.join(""); //串接全部字元
   };
 /*-----------------------------------------------------------------------------
@@ -331,7 +303,7 @@ encode(key)
 -----------------------------------------------------------------------------*/
 function encode(key) {
   if (!key) { 
-	  var key="8ABC7DLO5MN6Z9EFGdeJfghijkHIVrstuvwWSTUXYabclmnopqKPQRxyz01234";
+    var key="8ABC7DLO5MN6Z9EFGdeJfghijkHIVrstuvwWSTUXYabclmnopqKPQRxyz01234";
 	  } 
   var nl=this.length;
   var t=[];
@@ -339,10 +311,10 @@ function encode(key) {
   var N=key.length;
   var N2=N*N,N5=N*5;
   for (x=0;x<nl;x++) {
-	   a=this.charCodeAt(x);
-	   if (a<N5) m(Math.floor(a/N)),m(a%N);
-	   else m(Math.floor(a/N2)+5),m(Math.floor(a/N)%N),m(a%N);
-	   }
+    a=this.charCodeAt(x);
+    if (a<N5) m(Math.floor(a/N)),m(a%N);
+    else m(Math.floor(a/N2)+5),m(Math.floor(a/N)%N),m(a%N);
+    }
   var s=t.join("");
   return String(s.length).length+String(s.length)+s;  
   };
@@ -358,8 +330,8 @@ decode(key)
 -----------------------------------------------------------------------------*/
 function decode(key) {
   if (!key) { 
-	  var key="8ABC7DLO5MN6Z9EFGdeJfghijkHIVrstuvwWSTUXYabclmnopqKPQRxyz01234";
-	  } 
+    var key="8ABC7DLO5MN6Z9EFGdeJfghijkHIVrstuvwWSTUXYabclmnopqKPQRxyz01234";
+    } 
   var c=this.charAt(0)*1;
   if (isNaN(c)) return "";
   c=this.substr(1,c)*1;
@@ -372,11 +344,11 @@ function decode(key) {
   var N=key.length;
   if (nl!=x+c) return "";
   while (x<nl) {
-		 a=m(x++)
-		 if (a<5)f=a*N+m(x);
-		 else f=(a-5)*N*N+m(x)*N+m(x+=1);
-		 t[t.length]=String.fromCharCode(f);
-		 x++;
-	   }
+    a=m(x++)
+    if (a<5)f=a*N+m(x);
+    else f=(a-5)*N*N+m(x)*N+m(x+=1);
+    t[t.length]=String.fromCharCode(f);
+    x++;
+    }
   return t.join("");  
   };
